@@ -1,135 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mumbra Minutes - Print & Photo Order</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; color: #333; }
-        .container { max-width: 500px; margin: auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h2 { text-align: center; color: #007bff; margin-bottom: 20px; }
-        label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 5px; }
-        input[type="text"], input[type="tel"], select, input[type="number"], input[type="file"] {
-            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;
-        }
-        .summary { background: #e9ecef; padding: 15px; border-radius: 8px; margin-top: 20px; }
-        .summary p { margin: 5px 0; font-size: 16px; }
-        .total-price { font-size: 20px; font-weight: bold; color: #28a745; }
-        #qr-code { display: none; text-align: center; margin-top: 15px; }
-        #qr-code img { max-width: 200px; border-radius: 8px; border: 1px solid #ddd; }
-        button { width: 100%; background: #28a745; color: white; padding: 12px; border: none; border-radius: 6px; font-size: 18px; font-weight: bold; margin-top: 20px; cursor: pointer; }
-        button:hover { background: #218838; }
-        .location-btn { width: auto; margin-top: 0; padding: 10px 15px; font-size: 14px; background: #007bff; white-space: nowrap; }
-        .location-btn:hover { background: #0056b3; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mumbra Minutes - Doorstep Printing Service</title>
+  <style>
+    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f4f6f8; margin: 0; padding: 15px; color: #333; }
+    .container { max-width: 480px; margin: 0 auto; background: #ffffff; padding: 20px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+    h1 { font-size: 22px; margin-top: 0; color: #1a1a1a; text-align: center; }
+    .subtitle { text-align: center; font-size: 13px; color: #666; margin-bottom: 20px; }
+    
+    /* Trust Banner */
+    .trust-banner { display: flex; justify-content: space-around; background: #f9f9f9; padding: 12px; border-radius: 10px; margin-bottom: 20px; text-align: center; border: 1px solid #eee; }
+    .trust-item { flex: 1; font-size: 11px; color: #555; }
+    .trust-item strong { display: block; font-size: 12px; color: #111; margin-top: 4px; }
+    
+    /* Form Elements */
+    .card { border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px; margin-bottom: 20px; background: #fff; }
+    .card-title { font-size: 15px; font-weight: bold; margin-bottom: 12px; color: #2c3e50; display: flex; align-items: center; gap: 6px; }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #444; }
+    input[type="text"], input[type="tel"], input[type="url"], input[type="number"], select { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; margin-bottom: 12px; outline: none; }
+    input:focus, select:focus { border-color: #28a745; }
+    
+    /* Radio Selector Styling */
+    .radio-group { display: flex; gap: 10px; margin-bottom: 12px; }
+    .radio-option { flex: 1; border: 1px solid #ccc; padding: 10px; border-radius: 8px; text-align: center; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+    .radio-option input { display: none; }
+    .radio-option.selected { border-color: #28a745; background: #f4fff6; font-weight: bold; }
+
+    /* Counter */
+    .counter-btn { width: 32px; height: 32px; border-radius: 6px; border: 1px solid #ccc; background: #f0f0f0; font-size: 16px; font-weight: bold; cursor: pointer; }
+
+    /* Location Button */
+    .location-container { display: flex; gap: 8px; margin-bottom: 12px; }
+    .btn-gps { background: #007bff; color: white; border: none; padding: 10px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 600; white-space: nowrap; }
+
+    /* Bill Box */
+    .bill-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; color: #555; }
+    .bill-total { display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; color: #28a745; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ccc; }
+
+    /* Submit Button */
+    .btn-submit { width: 100%; background: #28a745; color: white; border: none; padding: 14px; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); }
+    .btn-submit:hover { background: #218838; }
+
+    /* Instagram Floating Button */
+    .instagram-btn { position: fixed; bottom: 15px; right: 15px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 10px 16px; border-radius: 50px; text-decoration: none; font-size: 13px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.25); display: flex; align-items: center; gap: 6px; z-index: 100; }
+  </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>Mumbra Minutes Order Form</h2>
+  <h1>⚡ Mumbra Minutes</h1>
+  <p class="subtitle">Fast, Doorstep Printing Service in Mumbra & Kausa</p>
+
+  <div class="trust-banner">
+    <div class="trust-item">🛡️<strong>100% Secure</strong>Files deleted after print</div>
+    <div class="trust-item">⚡<strong>In Minutes</strong>Fast local doorstep delivery</div>
+    <div class="trust-item">🏷️<strong>From ₹3</strong>Best rates in town</div>
+  </div>
+
+  <form action="https://formspree.io/f/meajerbk" method="POST">
     
-    <form action="https://formspree.io/f/meajerbk" method="POST" enctype="multipart/form-data">
-        
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+    <div class="card">
+      <div class="card-title">👤 Contact Details</div>
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required placeholder="Enter mobile number">
-<label for="location-link">Your Location / Google Maps Link:</label>
-<div style="display: flex; gap: 10px; margin-bottom: 15px;">
-  <input type="url" id="location-link" name="location_link" placeholder="Click button or paste Google Maps link" required style="flex: 1;">
-  <button type="button" onclick="getLocation()" style="padding: 8px 12px; cursor: pointer;">📍 Get Location</button>
+      <label for="phone">Phone / Mobile Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📄 Document Specs</div>
+      
+      <label for="file-link">File / Image Link (Google Drive / Share Link):</label>
+      <input type="url" id="file-link" name="file_link" placeholder="Paste your file link here" required>
+
+      <label>Choose Print Color:</label>
+      <div class="radio-group">
+        <label class="radio-option selected" id="opt-bw">
+          <input type="radio" name="print_color" value="BW" checked onclick="selectColor('BW')">
+          🖤 B & W<br><small>₹3 / page</small>
+        </label>
+        <label class="radio-option" id="opt-color">
+          <input type="radio" name="print_color" value="Color" onclick="selectColor('Color')">
+          🎨 Coloured<br><small>₹10 / page</small>
+        </label>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <label style="margin: 0;">Number of Copies:</label>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button type="button" class="counter-btn" onclick="updateCopies(-1)">-</button>
+          <span id="copies-count" style="font-weight: bold; width: 20px; text-align: center;">1</span>
+          <button type="button" class="counter-btn" onclick="updateCopies(1)">+</button>
+          <input type="hidden" id="copies-input" name="copies" value="1">
+        </div>
+      </div>
+
+      <label for="pages-count">Total Pages in File:</label>
+      <input type="number" id="pages-count" name="total_pages" value="1" min="1" oninput="calculateTotal()" required>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📍 Delivery Location</div>
+      <label for="location-link">Click to auto-detect or paste address:</label>
+      <div class="location-container">
+        <input type="url" id="location-link" name="location_link" placeholder="Click button or paste Google Maps link" required>
+        <button type="button" class="btn-gps" onclick="getLocation()">📍 Get GPS</button>
+      </div>
+      
+      <label for="delivery-notes">Delivery Instructions (Optional):</label>
+      <select id="delivery-notes" name="delivery_instructions">
+        <option value="Direct Delivery">Call before delivery</option>
+        <option value="Don't ring bell">Don't ring the bell</option>
+        <option value="Leave at door">Leave with gate guard / door</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🧾 Bill Summary</div>
+      <div class="bill-row">
+        <span>Printing Charge</span>
+        <span id="print-subtotal">₹3</span>
+      </div>
+      <div class="bill-row">
+        <span>Delivery Fee</span>
+        <span>₹15</span>
+      </div>
+      <div class="bill-total">
+        <span>Grand Total</span>
+        <span id="grand-total">₹18</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">💳 Payment Method</div>
+      <select id="payment-method" name="payment_method" onchange="togglePaymentSection()" required>
+        <option value="COD">Cash on Delivery</option>
+        <option value="Online">Online Payment (UPI)</option>
+      </select>
+
+      <div id="qr-section" style="display: none; text-align: center; margin-top: 15px;">
+        <p style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 10px;">Tap below to pay exact bill amount:</p>
+
+        <div style="margin-bottom: 15px;">
+          <a id="upi-link" href="#" target="_blank" style="background: #28a745; color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; display: block; text-align: center;">
+            📲 Pay via Any UPI App (GPay/PhonePe/Paytm)
+          </a>
+        </div>
+
+        <p style="font-size: 12px; color: #666; margin-bottom: 4px;">UPI ID: <strong>amirhamja8158@okhdfcbank</strong></p>
+
+        <label for="transaction-id" style="margin-top: 12px; text-align: left;">Transaction ID / UTR:</label>
+        <input type="text" id="transaction-id" name="transaction_id" placeholder="Enter UTR / Ref No. post payment">
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit">🚀 Place Order</button>
+  </form>
 </div>
 
+<a href="https://www.instagram.com/mumbraminutes?igsh=MW9hM2cwanVzc2NrdQ==" target="_blank" class="instagram-btn">
+  📷 Follow on Instagram
+</a>
+
 <script>
-function getLocation() {
-  const locationInput = document.getElementById("location-link");
-  if (navigator.geolocation) {
-    locationInput.placeholder = "Fetching location...";
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        // Generates direct clickable Google Maps URL
-        locationInput.value = `https://www.google.com/maps?q=${lat},${lon}`;
-      },
-      (error) => {
-        alert("Unable to retrieve your location. Please check your location/GPS settings or paste a Google Maps link manually.");
-        locationInput.placeholder = "Paste Google Maps link here";
-      }
-    );
-  } else {
-    alert("Geolocation is not supported by this browser.");
+  let copies = 1;
+
+  function selectColor(type) {
+    document.getElementById('opt-bw').classList.toggle('selected', type === 'BW');
+    document.getElementById('opt-color').classList.toggle('selected', type === 'Color');
+    calculateTotal();
   }
-}
-</script>
-        
-        </div>
 
-        <label for="instructions">Delivery Instructions:</label>
-        <input type="text" id="instructions" name="instructions" placeholder="Any special instructions (e.g. landmark or preferred time)">
-        <label for="file-link">File / Image Link (Google Drive, Gallery Link, etc.):</label>
-<input type="url" id="file-link" name="file_link" placeholder="Paste your Google Drive or Image link here" required>
-        
+  function updateCopies(change) {
+    copies = Math.max(1, copies + change);
+    document.getElementById('copies-count').innerText = copies;
+    document.getElementById('copies-input').value = copies;
+    calculateTotal();
+  }
 
-        <label for="service">Select Service:</label>
-        <select id="service" name="service" onchange="calculateTotal()">
-            <option value="4">Black & White Print (₹4 / page)</option>
-            <option value="10">Colour Print (₹10 / page)</option>
-            <option value="40">Passport Size Photo (₹40 / 6 photos)</option>
-            <option value="30">Lamination (₹30 / sheet)</option>
-        </select>
+  function calculateTotal() {
+    const pages = parseInt(document.getElementById('pages-count').value) || 1;
+    const isColor = document.getElementById('opt-color').classList.contains('selected');
+    const pricePerPage = isColor ? 10 : 3;
+    
+    const subtotal = pages * pricePerPage * copies;
+    const delivery = 15;
+    const grandTotal = subtotal + delivery;
 
-        <label for="quantity">Quantity / Copies:</label>
-        <input type="number" id="quantity" name="quantity" value="1" min="1" oninput="calculateTotal()" required>
+    document.getElementById('print-subtotal').innerText = '₹' + subtotal;
+    document.getElementById('grand-total').innerText = '₹' + grandTotal;
 
-        <label for="payment-method">Payment Mode:</label>
-        <select id="payment-method" name="payment_method" onchange="togglePaymentUI()">
-            <option value="COD">Cash on Delivery (COD)</option>
-            
-        </div>
+    // Configured UPI link
+    const myUpiId = "amirhamja8158@okhdfcbank"; 
+    const upiUrl = `upi://pay?pa=${myUpiId}&pn=Mumbra%20Minutes&am=${grandTotal}&cu=INR`;
+    
+    document.getElementById('upi-link').href = upiUrl;
+  }
 
-        <div class="summary">
-            <p>Total Amount: <span class="total-price">₹<span id="total">4</span></span></p>
-        </div>
+  function togglePaymentSection() {
+    const method = document.getElementById('payment-method').value;
+    document.getElementById('qr-section').style.display = method === 'Online' ? 'block' : 'none';
+  }
 
-        <button type="submit">Confirm Order</button>
-    </form>
-</div>
-
-<script>
-    function calculateTotal() {
-        const serviceRate = parseFloat(document.getElementById('service').value);
-        const quantity = parseInt(document.getElementById('quantity').value) || 1;
-        const total = serviceRate * quantity;
-        document.getElementById('total').innerText = total;
-    }
-
-    function togglePaymentUI() {
-        const paymentMethod = document.getElementById('payment-method').value;
-        const qrDiv = document.getElementById('qr-code');
-        if (paymentMethod === 'QR') {
-            qrDiv.style.display = 'block';
-        } else {
-            qrDiv.style.display = 'none';
+  function getLocation() {
+    const locationInput = document.getElementById("location-link");
+    if (navigator.geolocation) {
+      locationInput.placeholder = "Fetching location...";
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          locationInput.value = `https://www.google.com/maps?q=${lat},${lon}`;
+        },
+        () => {
+          alert("Unable to fetch location automatically. Please paste your Google Maps link manually.");
+          locationInput.placeholder = "Paste Google Maps link here";
         }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
     }
+  }
 
-    function getLocation() { 
-        if (navigator.geolocation) { 
-            navigator.geolocation.getCurrentPosition(showPosition, showError); 
-        } else { 
-            alert("Geolocation is not supported by this browser."); 
-        } 
-    } 
-
-    function showPosition(position) { 
-        document.getElementById("address").value = "Lat: " + position.coords.latitude + ", Long: " + position.coords.longitude; 
-    }
-
-    function showError(error) {
-        alert("Unable to retrieve location. Please type your address manually.");
-    }
+  // Initialize total calculation on load
+  calculateTotal();
 </script>
 
 </body>
