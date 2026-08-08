@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +19,8 @@
         #qr-code img { max-width: 200px; border-radius: 8px; border: 1px solid #ddd; }
         button { width: 100%; background: #28a745; color: white; padding: 12px; border: none; border-radius: 6px; font-size: 18px; font-weight: bold; margin-top: 20px; cursor: pointer; }
         button:hover { background: #218838; }
+        .location-btn { width: auto; margin-top: 0; padding: 10px 15px; font-size: 14px; background: #007bff; white-space: nowrap; }
+        .location-btn:hover { background: #0056b3; }
     </style>
 </head>
 <body>
@@ -26,44 +28,53 @@
 <div class="container">
     <h2>Mumbra Minutes Order Form</h2>
     
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" enctype="multipart/form-data">
+    <form action="https://formspree.io/f/meajerbk" method="POST" enctype="multipart/form-data">
         
-        <label for="name">আপনার নাম (Name):</label>
-        <input type="text" id="name" name="name" required placeholder="Name">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name">
 
-        <label for="phone">ফোন নম্বর (Phone Number):</label>
-        <input type="tel" id="phone" name="phone" required placeholder="Mobile Number">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Enter mobile number">
 
-        <label for="file">ফাইল/ছবি আপলোড করুন (Upload File):</label>
+        <label for="address">Delivery Address:</label>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="text" id="address" name="address" required placeholder="Enter delivery address">
+            <button type="button" class="location-btn" onclick="getLocation()">Use Current Location</button>
+        </div>
+
+        <label for="instructions">Delivery Instructions:</label>
+        <input type="text" id="instructions" name="instructions" placeholder="Any special instructions (e.g. landmark or preferred time)">
+        
+        <label for="file">Upload File / Image:</label>
         <input type="file" id="file" name="attachment" accept="image/*,.pdf" required>
 
-        <label for="service">সার্ভিস টাইপ (Select Service):</label>
+        <label for="service">Select Service:</label>
         <select id="service" name="service" onchange="calculateTotal()">
-            <option value="2">Black & White Print (₹2 / page)</option>
+            <option value="4">Black & White Print (₹4 / page)</option>
             <option value="10">Colour Print (₹10 / page)</option>
-            <option value="50">Passport Size Photo (₹50 / set)</option>
+            <option value="40">Passport Size Photo (₹40 / 6 photos)</option>
             <option value="30">Lamination (₹30 / sheet)</option>
         </select>
 
-        <label for="quantity">পরিমাণ/কপি (Quantity):</label>
+        <label for="quantity">Quantity / Copies:</label>
         <input type="number" id="quantity" name="quantity" value="1" min="1" oninput="calculateTotal()" required>
 
-        <label for="payment-method">পেমেন্ট মেথড (Payment Mode):</label>
+        <label for="payment-method">Payment Mode:</label>
         <select id="payment-method" name="payment_method" onchange="togglePaymentUI()">
             <option value="COD">Cash on Delivery (COD)</option>
             <option value="QR">UPI / QR Scanner</option>
         </select>
 
         <div id="qr-code">
-            <p><strong>নিচের QR কোডটি স্ক্যান করে পেমেন্ট করুন:</strong></p>
-            <img src="YOUR_QR_CODE_IMAGE_URL_HERE.jpg" alt="UPI QR Code">
+            <p><strong>Scan the QR code below to pay:</strong></p>
+            <img src="amirhamja8158@okhdfcbank.jpg" alt="UPI QR Code">
         </div>
 
         <div class="summary">
-            <p>মোট খরচ (Total Amount): <span class="total-price">₹<span id="total">2</span></span></p>
+            <p>Total Amount: <span class="total-price">₹<span id="total">4</span></span></p>
         </div>
 
-        <button type="submit">অর্ডার জমা দিন (Confirm Order)</button>
+        <button type="submit">Confirm Order</button>
     </form>
 </div>
 
@@ -83,6 +94,22 @@
         } else {
             qrDiv.style.display = 'none';
         }
+    }
+
+    function getLocation() { 
+        if (navigator.geolocation) { 
+            navigator.geolocation.getCurrentPosition(showPosition, showError); 
+        } else { 
+            alert("Geolocation is not supported by this browser."); 
+        } 
+    } 
+
+    function showPosition(position) { 
+        document.getElementById("address").value = "Lat: " + position.coords.latitude + ", Long: " + position.coords.longitude; 
+    }
+
+    function showError(error) {
+        alert("Unable to retrieve location. Please type your address manually.");
     }
 </script>
 
