@@ -44,9 +44,9 @@
 
         <label for="instructions">Delivery Instructions:</label>
         <input type="text" id="instructions" name="instructions" placeholder="Any special instructions (e.g. landmark or preferred time)">
+        <label for="file-link">File / Image Link (Google Drive, Gallery Link, etc.):</label>
+<input type="url" id="file-link" name="file_link" placeholder="Paste your Google Drive or Image link here" required>
         
-        <label for="file">Upload File / Image:</label>
-        <input type="file" id="file" name="attachment" accept="image/*,.pdf" required>
 
         <label for="service">Select Service:</label>
         <select id="service" name="service" onchange="calculateTotal()">
