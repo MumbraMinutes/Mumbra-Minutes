@@ -35,11 +35,35 @@
 
         <label for="phone">Phone Number:</label>
         <input type="tel" id="phone" name="phone" required placeholder="Enter mobile number">
+<label for="location-link">Your Location / Google Maps Link:</label>
+<div style="display: flex; gap: 10px; margin-bottom: 15px;">
+  <input type="url" id="location-link" name="location_link" placeholder="Click button or paste Google Maps link" required style="flex: 1;">
+  <button type="button" onclick="getLocation()" style="padding: 8px 12px; cursor: pointer;">📍 Get Location</button>
+</div>
 
-        <label for="address">Delivery Address:</label>
-        <div style="display: flex; gap: 10px; align-items: center;">
-            <input type="text" id="address" name="address" required placeholder="Enter delivery address">
-            <button type="button" class="location-btn" onclick="getLocation()">Use Current Location</button>
+<script>
+function getLocation() {
+  const locationInput = document.getElementById("location-link");
+  if (navigator.geolocation) {
+    locationInput.placeholder = "Fetching location...";
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        // Generates direct clickable Google Maps URL
+        locationInput.value = `https://www.google.com/maps?q=${lat},${lon}`;
+      },
+      (error) => {
+        alert("Unable to retrieve your location. Please check your location/GPS settings or paste a Google Maps link manually.");
+        locationInput.placeholder = "Paste Google Maps link here";
+      }
+    );
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+</script>
+        
         </div>
 
         <label for="instructions">Delivery Instructions:</label>
