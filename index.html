@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbra Minutes | Doorstep Printing in Mumbra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A2540;
+            --teal: #00A896;
+            --teal-hover: #008f80;
+            --light-bg: #F8FAFC;
+            --white: #FFFFFF;
+            --dark-text: #1E293B;
+            --gray-text: #64748B;
+            --light-blue: #E0F2FE;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--teal);
+        }
+
+        .btn-primary {
+            background-color: var(--teal);
+            color: var(--white);
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--teal-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #0d3257 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .badge {
+            background-color: rgba(0, 168, 150, 0.2);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid var(--teal);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #CBD5E1;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .price-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-card h3 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .price-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--teal);
+            margin: 0.5rem 0;
+        }
+
+        .price-card .price span {
+            font-size: 1rem;
+            color: var(--gray-text);
+            font-weight: 400;
+        }
+
+        .price-card p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        /* Estimator Calculator */
+        .calc-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 2px solid var(--light-blue);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .calc-box h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group select, .form-group input {
+            padding: 0.7rem;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .calc-result {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .total-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--teal);
+        }
+
+        /* How It Works Flow */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            position: relative;
+        }
+
+        .step-num {
+            background: var(--teal);
+            color: var(--white);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h4 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            color: #94A3B8;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">🖨️ Mumbra <span>Minutes</span></a>
+        <a href="https://instagram.com/mumbraminutes" target="_blank" class="btn-primary">Order Now</a>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">Doorstep Printing in Mumbra</div>
+        <h1>Line Chhodo, Printing Ghar Bulao.</h1>
+        <p>No waiting in queues. Get high-quality prints, notes, and passport photos delivered directly to your doorstep in Mumbra.</p>
+        <a href="https://instagram.com/mumbraminutes" target="_blank" class="btn-primary" style="font-size: 1.1rem; padding: 0.8rem 2rem;">Order via Instagram Bio Link 📲</a>
+    </section>
+
+    <div class="container">
+
+        <h2 class="section-title">Transparent Launch Pricing</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>A4 Black & White</h3>
+                <div class="price">₹4 <span>/ page</span></div>
+                <p>Crisp, smudge-free text for assignments, notes & forms.</p>
+            </div>
+            <div class="price-card">
+                <h3>A4 Colour Print</h3>
+                <div class="price">₹10 <span>/ page</span></div>
+                <p>High-clarity vibrant prints for projects & charts.</p>
+            </div>
+            <div class="price-card">
+                <h3>Passport Photos</h3>
+                <div class="price">₹35 <span>/ 6 photos</span></div>
+                <p>Studio-quality cut passport size photographs.</p>
+            </div>
+        </div>
+
+        <div class="calc-box">
+            <h3>🧮 Quick Price Calculator</h3>
+            <div class="calc-grid">
+                <div class="form-group">
+                    <label for="printType">Print Type</label>
+                    <select id="printType" onchange="calculatePrice()">
+                        <option value="4">A4 Black & White (₹4/page)</option>
+                        <option value="10">A4 Colour (₹10/page)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pageCount">Number of Pages</label>
+                    <input type="number" id="pageCount" value="5" min="1" oninput="calculatePrice()">
+                </div>
+            </div>
+            <div class="calc-result">
+                <span>Estimated Document Cost:</span>
+                <div class="total-price" id="totalCost">₹20</div>
+                <small style="color: var(--gray-text);">*Excludes flat doorstep delivery charge</small>
+            </div>
+        </div>
+
+        <h2 class="section-title">How To Order in 4 Easy Steps</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <h4>Tap Link in Bio</h4>
+                <p>Visit <strong>@mumbraminutes</strong> on Instagram and open the order form.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <h4>Upload Document</h4>
+                <p>Upload your PDF, choose print type & drop your location pin.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <h4>Confirm Quote</h4>
+                <p>Receive total price confirmation and approve your order.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">4</div>
+                <h4>Doorstep Delivery</h4>
+                <p>Relax at home while your prints are delivered to your doorstep!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p><strong>Mumbra Minutes</strong> — No Queue. Just Print.</p>
+        <p style="margin-top: 0.5rem;">Follow us on Instagram: <a href="https://instagram.com/mumbraminutes" target="_blank">@mumbraminutes</a></p>
+    </footer>
+
+    <script>
+        function calculatePrice() {
+            const rate = parseFloat(document.getElementById('printType').value);
+            const pages = parseInt(document.getElementById('pageCount').value) || 0;
+            const total = rate * pages;
+            document.getElementById('totalCost').innerText = '₹' + total;
+        }
+    </script>
+</body>
+</html>
