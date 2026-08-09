@@ -1,941 +1,1291 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta
-name="description"
-content="Mumbra Minutes - Fast and convenient doorstep printing service in Mumbra and Kausa. Order A4 black & white, colour printing and passport-size photos."
+<meta charset="UTF-8">
 
-«»
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <meta name="theme-color" content="#18a558">  <title>Mumbra Minutes | Doorstep Printing in Mumbra</title>  <style>
-    /* =========================================================
-       RESET & GLOBAL
-    ========================================================= */
+<meta name="description"
+      content="Mumbra Minutes - Doorstep printing, passport photos, lamination and emergency student supplies in Mumbra and Kausa.">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-    }
+<meta name="theme-color" content="#10b981">
 
-    html {
-      scroll-behavior: smooth;
-    }
+<title>Mumbra Minutes | Doorstep Printing & Supplies</title>
+
+<style>
+
+/* =========================================================
+   RESET & GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f6f8;
+    color: #1f2937;
+    padding: 15px;
+    line-height: 1.45;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+a,
+label {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    touch-action: manipulation;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow:
+        0 5px 25px rgba(0,0,0,0.07);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.brand-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #e8f5e9;
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 23px;
+    color: #111827;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   TRUST BANNER
+========================================================= */
+
+.trust-banner {
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+
+    background: #f9fafb;
+    padding: 12px 7px;
+
+    border-radius: 12px;
+    margin-bottom: 20px;
+
+    text-align: center;
+    border: 1px solid #eef0f2;
+}
+
+.trust-item {
+    flex: 1;
+    font-size: 10px;
+    color: #6b7280;
+    line-height: 1.35;
+}
+
+.trust-item strong {
+    display: block;
+    font-size: 11px;
+    color: #111827;
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   SECTION CARDS
+========================================================= */
+
+.card {
+    border: 1px solid #e5e7eb;
+    border-radius: 13px;
+    padding: 16px;
+    margin-bottom: 18px;
+    background: #fff;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 750;
+    margin-bottom: 14px;
+    color: #1f2937;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+label {
+    display: block;
+
+    font-size: 12px;
+    font-weight: 650;
+
+    margin-bottom: 6px;
+
+    color: #374151;
+}
+
+.required {
+    color: #dc2626;
+}
+
+.help-text {
+    font-size: 11px;
+    color: #6b7280;
+    margin-top: -5px;
+    margin-bottom: 12px;
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="email"],
+select,
+textarea {
+
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 10px 12px;
+
+    border:
+        1px solid #d1d5db;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 13px;
+
+    outline: none;
+
+    margin-bottom: 11px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #10b981;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(16,185,129,.10);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   PRINT RULE
+========================================================= */
+
+.print-rule-card {
+
+    position: relative;
+
+    background: #fafafa;
+
+    border:
+        1px solid #d1fae5;
+
+    border-left:
+        4px solid #10b981;
+
+    border-radius: 10px;
+
+    padding: 13px;
+
+    margin-bottom: 11px;
+}
+
+.rule-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+}
+
+.rule-number {
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    color: #059669;
+}
+
+.btn-remove-rule {
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    touch-action: manipulation;
+}
+
+.btn-remove-rule:active {
+    transform: scale(.92);
+}
+
+.rule-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.35fr
+        .9fr;
+
+    gap: 8px;
+}
+
+.rule-grid.three {
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+}
+
+.rule-grid > div {
+    min-width: 0;
+}
+
+.btn-add-rule {
+
+    width: 100%;
+
+    background: #ecfdf5;
+
+    color: #059669;
+
+    border:
+        1px dashed #10b981;
+
+    padding: 12px;
+
+    border-radius: 9px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+
+    touch-action: manipulation;
+}
+
+.btn-add-rule:active {
+    transform: scale(.99);
+    background: #d1fae5;
+}
+
+.rules-info {
+
+    font-size: 11px;
+
+    color: #6b7280;
+
+    background: #f9fafb;
+
+    border-radius: 8px;
+
+    padding: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SERVICE ITEM ROW
+========================================================= */
+
+.item-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px 0;
+
+    border-bottom:
+        1px dashed #edf0f2;
+
+    font-size: 13px;
+}
+
+.item-row:last-child {
+    border-bottom: none;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.item-price {
+    display: block;
+    color: #6b7280;
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.quantity-input {
+    width: 70px !important;
+    min-height: 40px !important;
+    margin: 0 !important;
+    text-align: center;
+}
+
+
+/* =========================================================
+   SUB OPTIONS
+========================================================= */
+
+.sub-option-box {
+
+    background: #f9fafb;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius: 9px;
+
+    padding: 11px;
+
+    margin-top: 8px;
+
+    margin-bottom: 10px;
+}
+
+.sub-option-box small {
+    display: block;
+    color: #6b7280;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.location-container {
+
+    display: flex;
+
+    gap: 8px;
+
+    align-items: stretch;
+
+    margin-bottom: 5px;
+}
+
+.location-container input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    margin-bottom: 0;
+}
+
+.btn-gps {
+
+    flex-shrink: 0;
+
+    width: 105px;
+
+    min-height: 44px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+
+    color: #fff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+}
+
+.btn-gps:active {
+    transform: scale(.97);
+}
+
+.btn-gps:disabled {
+    opacity: .7;
+    cursor: wait;
+}
+
+
+/* =========================================================
+   BILL
+========================================================= */
+
+.bill-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+
+    color: #4b5563;
+}
+
+.bill-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    color: #059669;
+
+    margin-top: 12px;
+
+    padding-top: 12px;
+
+    border-top:
+        1px dashed #d1d5db;
+}
+
+.bill-note {
+
+    background: #f9fafb;
+
+    border-radius: 8px;
+
+    padding: 9px;
+
+    margin-top: 12px;
+
+    color: #6b7280;
+
+    font-size: 10px;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   PAYMENT
+========================================================= */
+
+.payment-note {
+
+    font-size: 11px;
+
+    color: #6b7280;
+
+    line-height: 1.5;
+
+    margin-bottom: 12px;
+}
+
+.upi-button {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 9px;
+
+    background: #10b981;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    font-weight: 750;
+
+    margin-bottom: 11px;
+}
+
+.upi-button:active {
+    transform: scale(.99);
+}
+
+.upi-id {
+
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #6b7280;
+
+    margin-bottom: 12px;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.btn-submit {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 11px;
+
+    padding: 15px;
+
+    background: #10b981;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px
+        rgba(16,185,129,.25);
+
+    touch-action: manipulation;
+}
+
+.btn-submit:active {
+    transform: scale(.99);
+}
+
+.btn-submit:disabled {
+    opacity: .7;
+    cursor: wait;
+}
+
+
+/* =========================================================
+   PRIVACY
+========================================================= */
+
+.privacy-note {
+
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #6b7280;
+
+    line-height: 1.5;
+
+    margin-top: 14px;
+}
+
+
+/* =========================================================
+   GUIDE
+========================================================= */
+
+.guide-section {
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    background: #fff;
+
+    padding: 16px;
+
+    margin-top: 22px;
+}
+
+.guide-header {
+
+    font-size: 15px;
+
+    font-weight: 750;
+
+    color: #111827;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding-bottom: 10px;
+
+    margin-bottom: 13px;
+
+    border-bottom:
+        1px solid #f3f4f6;
+}
+
+.guide-step {
+
+    display: flex;
+
+    gap: 11px;
+
+    margin-bottom: 13px;
+
+    align-items: flex-start;
+}
+
+.guide-step:last-child {
+    margin-bottom: 0;
+}
+
+.step-badge {
+
+    flex-shrink: 0;
+
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ecfdf5;
+
+    color: #059669;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.step-content {
+
+    font-size: 11px;
+
+    color: #6b7280;
+
+    line-height: 1.5;
+}
+
+.step-title {
+
+    display: block;
+
+    color: #111827;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    margin-bottom: 2px;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.instagram-btn {
+
+    position: fixed;
+
+    right: 15px;
+    bottom: 15px;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 10px 15px;
+
+    border-radius: 50px;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    background:
+        linear-gradient(
+            45deg,
+            #f09433,
+            #e6683c,
+            #dc2743,
+            #cc2366,
+            #bc1888
+        );
+
+    box-shadow:
+        0 4px 12px
+        rgba(0,0,0,.20);
+}
+
+.instagram-btn:active {
+    transform: scale(.97);
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.success-box {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 25px 15px;
+
+    background: #ecfdf5;
+
+    border:
+        1px solid #a7f3d0;
+
+    border-radius: 12px;
+
+    margin-top: 15px;
+}
+
+.success-icon {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.success-box h2 {
+
+    font-size: 20px;
+
+    color: #047857;
+
+    margin-bottom: 6px;
+}
+
+.success-box p {
+
+    color: #4b5563;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 380px) {
 
     body {
-      background:
-        linear-gradient(180deg, #eefaf3 0%, #f5f7f8 220px);
-      color: #202124;
-      padding: 14px;
-      min-height: 100vh;
-    }
-
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    button,
-    a,
-    label {
-      -webkit-tap-highlight-color: transparent;
+        padding: 8px;
     }
 
     .container {
-      width: 100%;
-      max-width: 520px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 22px;
-      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-    }
-
-    .content {
-      padding: 20px;
-    }
-
-    /* =========================================================
-       HEADER
-    ========================================================= */
-
-    .hero {
-      text-align: center;
-      padding: 26px 20px 22px;
-      background:
-        linear-gradient(180deg, #f4fff8 0%, #ffffff 100%);
-      border-bottom: 1px solid #edf0ee;
-    }
-
-    .logo-mark {
-      width: 58px;
-      height: 58px;
-      margin: 0 auto 11px;
-      border-radius: 17px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #18a558;
-      color: #ffffff;
-      font-size: 28px;
-      font-weight: 900;
-      box-shadow: 0 7px 18px rgba(24, 165, 88, 0.22);
-    }
-
-    .brand-name {
-      font-size: 27px;
-      font-weight: 850;
-      color: #111827;
-      letter-spacing: -0.5px;
-    }
-
-    .hero-subtitle {
-      margin-top: 6px;
-      color: #667085;
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .location-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      margin-top: 12px;
-      padding: 7px 11px;
-      border-radius: 50px;
-      background: #eaf8ef;
-      color: #168447;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    /* =========================================================
-       TRUST BAR
-    ========================================================= */
-
-    .trust-banner {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 7px;
-      margin: 0 20px 18px;
-      padding: 10px;
-      border: 1px solid #e5ebe7;
-      border-radius: 14px;
-      background: #fafcfb;
-    }
-
-    .trust-item {
-      text-align: center;
-      color: #707780;
-      font-size: 9px;
-      line-height: 1.35;
-    }
-
-    .trust-icon {
-      font-size: 17px;
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .trust-item strong {
-      display: block;
-      color: #252b32;
-      font-size: 10px;
-      margin-bottom: 2px;
-    }
-
-    /* =========================================================
-       QUICK PRICE CARDS
-    ========================================================= */
-
-    .pricing-card {
-      margin-bottom: 17px;
-      padding: 16px;
-      border: 1px solid #e2e8e4;
-      border-radius: 15px;
-      background: #ffffff;
-    }
-
-    .section-heading {
-      color: #20252b;
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 13px;
-    }
-
-    .price-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 9px;
-    }
-
-    .price-item {
-      padding: 12px 9px;
-      border-radius: 11px;
-      background: #f7faf8;
-      border: 1px solid #e5ebe7;
-      text-align: center;
-    }
-
-    .price-item .emoji {
-      font-size: 19px;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .price-item strong {
-      display: block;
-      font-size: 13px;
-      color: #24292f;
-    }
-
-    .price-item span {
-      display: block;
-      margin-top: 3px;
-      color: #18a558;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .price-item.full {
-      grid-column: 1 / -1;
-    }
-
-    /* =========================================================
-       ORDER STEPS
-    ========================================================= */
-
-    .steps {
-      margin-bottom: 17px;
-      padding: 15px;
-      border-radius: 15px;
-      background: #f8fbf9;
-      border: 1px solid #e3ebe6;
-    }
-
-    .step {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-    }
-
-    .step + .step {
-      margin-top: 12px;
-    }
-
-    .step-number {
-      width: 25px;
-      height: 25px;
-      flex: 0 0 25px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #18a558;
-      color: #ffffff;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .step-text strong {
-      display: block;
-      font-size: 12px;
-      color: #24292f;
-      margin-bottom: 2px;
-    }
-
-    .step-text span {
-      color: #737b83;
-      font-size: 11px;
-      line-height: 1.4;
-    }
-
-    /* =========================================================
-       CARD
-    ========================================================= */
-
-    .card {
-      background: #ffffff;
-      border: 1px solid #e1e6e3;
-      border-radius: 15px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-
-    .card-title {
-      color: #20262c;
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    /* =========================================================
-       LABELS
-    ========================================================= */
-
-    label {
-      display: block;
-      color: #444b52;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .required {
-      color: #d92d20;
-    }
-
-    /* =========================================================
-       INPUTS
-    ========================================================= */
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border: 1px solid #cfd6d2;
-      border-radius: 10px;
-      background: #ffffff;
-      color: #202124;
-      outline: none;
-      font-size: 13px;
-      transition: 0.2s ease;
-    }
-
-    input,
-    select {
-      height: 45px;
-      padding: 10px 12px;
-      margin-bottom: 13px;
-    }
-
-    textarea {
-      min-height: 80px;
-      padding: 11px 12px;
-      resize: vertical;
-      margin-bottom: 4px;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #18a558;
-      box-shadow: 0 0 0 3px rgba(24, 165, 88, 0.10);
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #9aa1a8;
-    }
-
-    .help-text {
-      color: #7a8188;
-      font-size: 10px;
-      line-height: 1.5;
-      margin-top: -7px;
-      margin-bottom: 13px;
-    }
-
-    /* =========================================================
-       FILE LINK
-    ========================================================= */
-
-    .file-note {
-      padding: 10px;
-      margin: -3px 0 15px;
-      border-radius: 9px;
-      background: #fff9e8;
-      color: #7b641c;
-      border: 1px solid #f2e4b4;
-      font-size: 10px;
-      line-height: 1.45;
-    }
-
-    /* =========================================================
-       RADIO OPTIONS
-    ========================================================= */
-
-    .radio-group {
-      display: flex;
-      gap: 9px;
-      margin-bottom: 15px;
-    }
-
-    .radio-option {
-      flex: 1;
-      position: relative;
-      padding: 12px 7px;
-      border: 1.5px solid #d2d8d5;
-      border-radius: 11px;
-      background: #ffffff;
-      text-align: center;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .radio-option input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-      width: 0;
-      height: 0;
-    }
-
-    .radio-option.selected {
-      border-color: #18a558;
-      background: #f0fff5;
-      box-shadow: 0 0 0 1px #18a558;
-    }
-
-    .radio-option strong {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 3px;
-    }
-
-    .radio-option small {
-      color: #697178;
-      font-size: 10px;
-    }
-
-    /* =========================================================
-       COPIES
-    ========================================================= */
-
-    .copies-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 2px 0 15px;
-    }
-
-    .copies-row label {
-      margin: 0;
-    }
-
-    .copies-control {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .counter-btn {
-      width: 34px;
-      height: 34px;
-      border: 1px solid #ccd2cf;
-      border-radius: 8px;
-      background: #f5f7f6;
-      color: #202124;
-      font-size: 18px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .counter-btn:active {
-      transform: scale(0.94);
-    }
-
-    .copies-number {
-      min-width: 24px;
-      text-align: center;
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    /* =========================================================
-       LOCATION
-    ========================================================= */
-
-    .location-container {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-    }
-
-    .location-container input {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .gps-button {
-      width: 91px;
-      height: 45px;
-      border: none;
-      border-radius: 10px;
-      background: #1677ff;
-      color: #ffffff;
-      font-size: 11px;
-      font-weight: 800;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .gps-button:active {
-      transform: scale(0.97);
-    }
-
-    /* =========================================================
-       BILL
-    ========================================================= */
-
-    .bill-box {
-      padding: 14px;
-      border-radius: 11px;
-      background: #f8faf9;
-      border: 1px solid #e4e9e6;
-    }
-
-    .bill-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      color: #5f666d;
-      font-size: 12px;
-      margin-bottom: 9px;
-    }
-
-    .bill-total {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      color: #18a558;
-      font-size: 18px;
-      font-weight: 850;
-      border-top: 1px dashed #cdd4d0;
-      margin-top: 11px;
-      padding-top: 12px;
-    }
-
-    .estimate-note {
-      margin-top: 10px;
-      color: #777f86;
-      font-size: 10px;
-      line-height: 1.45;
-    }
-
-    /* =========================================================
-       PAYMENT
-    ========================================================= */
-
-    .payment-note {
-      color: #686f76;
-      font-size: 10px;
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-
-    .upi-button {
-      display: block;
-      width: 100%;
-      padding: 13px;
-      background: #18a558;
-      color: #ffffff;
-      border-radius: 10px;
-      text-align: center;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .upi-button:active {
-      transform: scale(0.99);
-    }
-
-    .upi-id {
-      text-align: center;
-      color: #6c737a;
-      font-size: 10px;
-      margin-bottom: 14px;
-      word-break: break-word;
-    }
-
-    .payment-warning {
-      padding: 9px 10px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      background: #fff7e6;
-      border: 1px solid #f1dfb3;
-      color: #725b18;
-      font-size: 10px;
-      line-height: 1.45;
-    }
-
-    /* =========================================================
-       SUBMIT
-    ========================================================= */
-
-    .submit-button {
-      width: 100%;
-      border: none;
-      border-radius: 12px;
-      padding: 15px;
-      background: #18a558;
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 850;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(24, 165, 88, 0.22);
-      transition: 0.2s ease;
-    }
-
-    .submit-button:hover {
-      background: #148c4b;
-    }
-
-    .submit-button:active {
-      transform: scale(0.99);
-    }
-
-    .submit-button:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
-    }
-
-    /* =========================================================
-       PRIVACY
-    ========================================================= */
-
-    .privacy-note {
-      text-align: center;
-      color: #777f86;
-      font-size: 10px;
-      line-height: 1.55;
-      margin: 15px 3px 0;
-    }
-
-    .privacy-note strong {
-      color: #555d64;
-    }
-
-    /* =========================================================
-       INSTAGRAM
-    ========================================================= */
-
-    .instagram-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      margin-top: 18px;
-      padding: 13px;
-      border-radius: 11px;
-      background:
-        linear-gradient(
-          45deg,
-          #f58529,
-          #dd2a7b,
-          #8134af,
-          #515bd4
-        );
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 800;
-      transition: 0.2s ease;
-    }
-
-    .instagram-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
-    }
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-
-    .footer {
-      text-align: center;
-      padding: 20px;
-      color: #8a9198;
-      font-size: 10px;
-      line-height: 1.5;
-    }
-
-    .footer strong {
-      color: #596168;
-    }
-
-    /* =========================================================
-       SUCCESS / INFO MESSAGE
-    ========================================================= */
-
-    .info-message {
-      display: none;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      background: #eefaf3;
-      border: 1px solid #ccebd8;
-      color: #166c3b;
-      font-size: 11px;
-      line-height: 1.5;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    /* =========================================================
-       MOBILE
-    ========================================================= */
-
-    @media (max-width: 380px) {
-      body {
-        padding: 8px;
-      }
-
-      .content {
         padding: 15px;
-      }
-
-      .hero {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-
-      .brand-name {
-        font-size: 24px;
-      }
-
-      .trust-banner {
-        margin-left: 15px;
-        margin-right: 15px;
-      }
-
-      .trust-item {
-        font-size: 8px;
-      }
-
-      .trust-item strong {
-        font-size: 9px;
-      }
-
-      .radio-group {
-        gap: 6px;
-      }
-
-      .gps-button {
-        width: 82px;
-      }
+        border-radius: 15px;
     }
-  </style></head><body>  <main class="container"><!-- =======================================================
-     HERO
-======================================================== -->
 
-<header class="hero">
+    .rule-grid {
+        grid-template-columns: 1fr;
+    }
 
-  <div class="logo-mark" aria-hidden="true">
-    M
-  </div>
+    .rule-grid.three {
+        grid-template-columns: 1fr 1fr;
+    }
 
-  <h1 class="brand-name">
-    Mumbra Minutes
-  </h1>
+    .btn-gps {
+        width: 90px;
+    }
 
-  <p class="hero-subtitle">
-    Fast &amp; convenient doorstep printing<br>
-    for students, residents &amp; local businesses.
-  </p>
+    .instagram-btn {
+        right: 10px;
+        bottom: 10px;
+    }
+}
 
-  <div class="location-badge">
-    📍 Serving Mumbra &amp; Kausa
-  </div>
+</style>
+</head>
+
+
+<body>
+
+<main class="container">
+
+
+<!-- ======================================================
+     HEADER
+====================================================== -->
+
+<header class="header-box">
+
+    <img
+        src="https://drive.google.com/thumbnail?id=1oQphTWogk8mpg0z5sGV6qt82tviqmL9J&sz=w500"
+        alt="Mumbra Minutes Logo"
+        class="brand-logo"
+    >
+
+    <h1>Mumbra Minutes</h1>
+
+    <p class="subtitle">
+        Doorstep Printing, Photos & Student Essentials<br>
+        📍 Mumbra & Kausa
+    </p>
 
 </header>
 
 
-<div class="content">
+<!-- ======================================================
+     TRUST
+====================================================== -->
 
-  <!-- =====================================================
-       TRUST
-  ====================================================== -->
-
-  <section class="trust-banner" aria-label="Service benefits">
+<section class="trust-banner">
 
     <div class="trust-item">
-      <span class="trust-icon">🔒</span>
-      <strong>Privacy Focused</strong>
-      Files handled carefully
+        🔒
+        <strong>Privacy Focused</strong>
+        Careful document handling
     </div>
 
     <div class="trust-item">
-      <span class="trust-icon">⚡</span>
-      <strong>Local &amp; Fast</strong>
-      Doorstep service
+        ⚡
+        <strong>Local Delivery</strong>
+        Convenient doorstep service
     </div>
 
     <div class="trust-item">
-      <span class="trust-icon">💰</span>
-      <strong>Transparent</strong>
-      Simple pricing
+        💰
+        <strong>Clear Pricing</strong>
+        No hidden print rates
     </div>
 
-  </section>
+</section>
 
 
-  <!-- =====================================================
-       PRICING
-  ====================================================== -->
+<!-- ======================================================
+     ORDER FORM
+====================================================== -->
 
-  <section class="pricing-card">
-
-    <h2 class="section-heading">
-      💰 Our Pricing
-    </h2>
-
-    <div class="price-grid">
-
-      <div class="price-item">
-        <span class="emoji">🖤</span>
-        <strong>A4 B&amp;W Print</strong>
-        <span>₹4 / page</span>
-      </div>
-
-      <div class="price-item">
-        <span class="emoji">🎨</span>
-        <strong>A4 Colour Print</strong>
-        <span>₹10 / page</span>
-      </div>
-
-      <div class="price-item full">
-        <span class="emoji">📸</span>
-        <strong>Passport Size Photos</strong>
-        <span>₹35 / 6 photos</span>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       HOW IT WORKS
-  ====================================================== -->
-
-  <section class="steps">
-
-    <h2 class="section-heading">
-      🚀 How It Works
-    </h2>
-
-    <div class="step">
-      <div class="step-number">1</div>
-      <div class="step-text">
-        <strong>Fill your order details</strong>
-        <span>Enter your contact, document, printing and delivery information.</span>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-number">2</div>
-      <div class="step-text">
-        <strong>Submit your order</strong>
-        <span>We receive your request and verify the details.</span>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-number">3</div>
-      <div class="step-text">
-        <strong>Printing &amp; delivery</strong>
-        <span>Your documents are printed and delivered to your selected location.</span>
-      </div>
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       FORM
-  ====================================================== -->
-
-  <form
-    id="orderForm"
+<form
+    id="order-form"
     action="https://formspree.io/f/meajerbk"
     method="POST"
-  >
-
-    <div
-      id="infoMessage"
-      class="info-message"
-      role="status"
-    ></div>
+>
 
 
-    <!-- ===================================================
-         CONTACT DETAILS
-    ==================================================== -->
+<input
+    type="hidden"
+    name="_subject"
+    value="New Mumbra Minutes Order"
+>
 
-    <section class="card">
+<input
+    type="hidden"
+    name="Order Source"
+    value="Mumbra Minutes Website"
+>
 
-      <div class="card-title">
+
+<!-- ======================================================
+     CONTACT
+====================================================== -->
+
+<section class="card">
+
+    <div class="card-title">
         👤 Contact Details
-      </div>
+    </div>
 
-      <label for="name">
+
+    <label for="name">
         Full Name <span class="required">*</span>
-      </label>
+    </label>
 
-      <input
+    <input
         type="text"
         id="name"
-        name="name"
+        name="Customer Name"
         placeholder="Enter your full name"
         minlength="2"
         maxlength="60"
         autocomplete="name"
         required
-      >
+    >
 
-      <label for="phone">
+
+    <label for="phone">
         Mobile Number <span class="required">*</span>
-      </label>
+    </label>
 
-      <input
+    <input
         type="tel"
         id="phone"
-        name="phone"
+        name="Phone Number"
         placeholder="10-digit mobile number"
         inputmode="numeric"
-        pattern="[6-9][0-9]{9}"
         maxlength="10"
         autocomplete="tel"
         required
-      >
+    >
 
-      <p class="help-text">
-        We'll use this number only for order-related communication.
-      </p>
+    <p class="help-text">
+        Enter your active 10-digit Indian mobile number.
+    </p>
 
-    </section>
+</section>
 
 
-    <!-- ===================================================
-         DOCUMENT
-    ==================================================== -->
+<!-- ======================================================
+     PRINTING
+====================================================== -->
 
-    <section class="card">
+<section class="card">
 
-      <div class="card-title">
-        📄 Document &amp; Printing Details
-      </div>
+    <div class="card-title">
+        📄 Printing Order
+    </div>
 
-      <label for="file-link">
-        File / Document Link <span class="required">*</span>
-      </label>
 
-      <input
+    <label for="file-link">
+        Document / Google Drive Link
+    </label>
+
+    <input
         type="url"
         id="file-link"
-        name="file_link"
-        placeholder="Paste Google Drive / file link"
-        required
-      >
+        name="Main Document Link"
+        placeholder="Paste PDF / document link"
+    >
 
-      <div class="file-note">
-        💡 <strong>Important:</strong> Make sure your file link is accessible.
-        
+    <p class="help-text">
+        If ordering printing, make sure your Google Drive file is set to
+        <strong>"Anyone with the link can view"</strong>.
+    </p>
+
+
+    <div id="print-rules-container">
+
+
+        <!-- DEFAULT RULE -->
+
+        <div
+            class="print-rule-card"
+            id="rule-1"
+            data-rule="1"
+        >
+
+            <div class="rule-heading">
+
+                <span class="rule-number">
+                    Print Rule 1
+                </span>
+
+            </div>
+
+
+            <label>
+                Page(s) to Print
+            </label>
+
+            <input
+                type="text"
+                name="Pages Requested[]"
+                class="rule-pages"
+                placeholder="Example: 1-3, 5, or All"
+            >
+
+
+            <div class="rule-grid">
+
+                <div>
+
+                    <label>
+                        Print Type
+                    </label>
+
+                    <select
+                        name="Print Color Type[]"
+                        class="rule-type"
+                    >
+
+                        <option value="BW">
+                            🖤 B&W — ₹4/page
+                        </option>
+
+                        <option value="Color">
+                            🎨 Colour — ₹10/page
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Printed Pages
+                    </label>
+
+                    <input
+                        type="number"
+                        name="Printed Pages[]"
+                        class="rule-pages-count"
+                        value="1"
+                        min="0"
+                        max="5000"
+                        inputmode="numeric"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="rule-grid three">
+
+                <div>
+
+                    <label>
+                        Copies
+                    </label>
+
+                    <input
+                        type="number"
+                        name="Copies Count[]"
+                        class="rule-copies"
+                        value="1"
+                        min="1"
+                        max="50"
+                        inputmode="numeric"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Side
+                    </label>
+
+                    <select
+                        name="Printing Side[]"
+                    >
+
+                        <option value="Single-Sided">
+                            Single
+                        </option>
+
+                        <option value="Double-Sided">
+                            Double
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Paper
+                    </label>
+
+                    <select
+                        name="Paper Size[]"
+                    >
+
+                        <option value="A4">
+                            A4
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button
+        type="button"
+        class="btn-add-rule"
+        id="add-rule-button"
+    >
+        + Add Another Page Rule
+    </button>
+
+
+    <div class="rules-info">
+
+        💡 Need different printing for different pages?
+        Example: Pages 1–3 B&W and Page 4 Colour.
+        Add a separate rule for each preference.
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PHOTOS & LAMINATION
+====================================================== -->
+
+<section class="card">
+
+    <div class="card-title">
+        🖼️ Photos & Lamination
+    </div>
+
+
+    <div class="item-row">
+
+        <div class="item-info">
+
+            <span class="item-name">
+             
