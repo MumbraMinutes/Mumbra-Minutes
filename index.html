@@ -132,17 +132,17 @@
       <div class="card-title">🖼️ Photos & Lamination</div>
       
       <div class="item-row">
-        <span>Passport Photos <br><small style="color:#6b7280;">₹35 / set of 6</small></span>
-        <input type="number" id="photo-sets" name="Passport Photo Sets" value="0" min="0" oninput="togglePhotoUpload(); calculateTotal();" style="width: 70px; margin:0;">
-      </div>
-      
-      <div id="photo-link-box" class="sub-option-box" style="display: none;">
-        <label for="photo-file-link">📸 Passport Photo Image Link:</label>
-        <input type="url" id="photo-file-link" name="Passport Photo Image Link" placeholder="Paste link to your passport photo image">
-        <small style="color: #6b7280; display: block; margin-top: -6px;">Upload your photo to Drive/Imgur and paste the share link here.</small>
+        <span>Passport Photos <br><small style="color:#6b7280;">₹35 / set of 6 photos</small></span>
+        <input type="number" id="photo-sets" name="Passport Photo Sets" value="0" min="0" oninput="calculateTotal()" style="width: 70px; margin:0;">
       </div>
 
-      <div class="item-row">
+      <div class="sub-option-box">
+        <label for="photo-file-link">📸 Passport Photo File / Image Link:</label>
+        <input type="url" id="photo-file-link" name="Passport Photo Image Link" placeholder="Paste image link here (Google Drive / Imgur / Drive Link)">
+        <small style="color: #6b7280; display: block; margin-top: -6px;">If ordering passport photos, paste your photo link above. Make sure Drive link access is set to "Anyone with link".</small>
+      </div>
+
+      <div class="item-row" style="margin-top: 10px;">
         <span>Page Lamination <br><small style="color:#6b7280;">₹35 / page</small></span>
         <input type="number" id="lamination-pages" name="Lamination Pages" value="0" min="0" oninput="calculateTotal()" style="width: 70px; margin:0;">
       </div>
@@ -383,11 +383,6 @@
     }
   }
 
-  function togglePhotoUpload() {
-    const count = parseInt(document.getElementById('photo-sets').value) || 0;
-    document.getElementById('photo-link-box').style.display = count > 0 ? 'block' : 'none';
-  }
-
   function togglePenOptions() {
     const count = parseInt(document.getElementById('stat-pen').value) || 0;
     document.getElementById('pen-details-box').style.display = count > 0 ? 'block' : 'none';
@@ -395,4 +390,10 @@
 
   function toggleNotebookOptions() {
     const count = parseInt(document.getElementById('stat-notebook').value) || 0;
-    document.getElementById('notebook-details-box').style.display = count > 0 ? 'block
+    document.getElementById('notebook-details-box').style.display = count > 0 ? 'block' : 'none';
+  }
+
+  function calculateTotal() {
+    // 1. Print Calculation
+    let printSubtotal = 0;
+    const ruleCards = document.querySelectorAll('.print-rule-card')
