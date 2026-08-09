@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta
+name="description"
+content="Mumbra Minutes - Fast and convenient doorstep printing service in Mumbra and Kausa. Order A4 black & white, colour printing and passport-size photos."
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+«»
 
-  <meta
-    name="description"
-    content="Mumbra Minutes - Fast doorstep printing service in Mumbra and Kausa."
-  >
-
-  <meta
-    name="theme-color"
-    content="#28a745"
-  >
-
-  <title>Mumbra Minutes | Doorstep Printing</title>
-
-
-  <style>
-
-    /* =========================================
-       GLOBAL
-    ========================================= */
+  <meta name="theme-color" content="#18a558">  <title>Mumbra Minutes | Doorstep Printing in Mumbra</title>  <style>
+    /* =========================================================
+       RESET & GLOBAL
+    ========================================================= */
 
     * {
       box-sizing: border-box;
@@ -34,228 +18,397 @@
       font-family: "Segoe UI", Arial, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: #f4f6f8;
-      color: #222;
-      padding: 15px;
+      background:
+        linear-gradient(180deg, #eefaf3 0%, #f5f7f8 220px);
+      color: #202124;
+      padding: 14px;
+      min-height: 100vh;
     }
 
     button,
     input,
-    select {
+    select,
+    textarea {
       font: inherit;
+    }
+
+    button,
+    a,
+    label {
+      -webkit-tap-highlight-color: transparent;
     }
 
     .container {
       width: 100%;
-      max-width: 500px;
+      max-width: 520px;
       margin: 0 auto;
       background: #ffffff;
+      border-radius: 22px;
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .content {
       padding: 20px;
-      border-radius: 18px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
     }
 
-
-    /* =========================================
+    /* =========================================================
        HEADER
-    ========================================= */
+    ========================================================= */
 
-    .brand {
+    .hero {
       text-align: center;
-      margin-bottom: 20px;
+      padding: 26px 20px 22px;
+      background:
+        linear-gradient(180deg, #f4fff8 0%, #ffffff 100%);
+      border-bottom: 1px solid #edf0ee;
     }
 
-    .brand h1 {
-      font-size: 25px;
-      font-weight: 800;
-      color: #111;
-      margin-bottom: 5px;
+    .logo-mark {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 11px;
+      border-radius: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #18a558;
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 900;
+      box-shadow: 0 7px 18px rgba(24, 165, 88, 0.22);
     }
 
-    .subtitle {
-      color: #666;
+    .brand-name {
+      font-size: 27px;
+      font-weight: 850;
+      color: #111827;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      margin-top: 6px;
+      color: #667085;
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 12px;
+      padding: 7px 11px;
+      border-radius: 50px;
+      background: #eaf8ef;
+      color: #168447;
+      font-size: 11px;
+      font-weight: 700;
+    }
 
-    /* =========================================
-       TRUST BANNER
-    ========================================= */
+    /* =========================================================
+       TRUST BAR
+    ========================================================= */
 
     .trust-banner {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 7px;
-      background: #f8faf9;
-      border: 1px solid #e4e9e6;
-      border-radius: 12px;
-      padding: 12px 6px;
-      margin-bottom: 20px;
+      margin: 0 20px 18px;
+      padding: 10px;
+      border: 1px solid #e5ebe7;
+      border-radius: 14px;
+      background: #fafcfb;
     }
 
     .trust-item {
-      flex: 1;
       text-align: center;
-      color: #666;
-      font-size: 10px;
-      line-height: 1.4;
+      color: #707780;
+      font-size: 9px;
+      line-height: 1.35;
+    }
+
+    .trust-icon {
+      font-size: 17px;
+      display: block;
+      margin-bottom: 3px;
     }
 
     .trust-item strong {
       display: block;
-      color: #222;
-      font-size: 11px;
-      margin: 3px 0;
+      color: #252b32;
+      font-size: 10px;
+      margin-bottom: 2px;
     }
 
+    /* =========================================================
+       QUICK PRICE CARDS
+    ========================================================= */
 
-    /* =========================================
+    .pricing-card {
+      margin-bottom: 17px;
+      padding: 16px;
+      border: 1px solid #e2e8e4;
+      border-radius: 15px;
+      background: #ffffff;
+    }
+
+    .section-heading {
+      color: #20252b;
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .price-item {
+      padding: 12px 9px;
+      border-radius: 11px;
+      background: #f7faf8;
+      border: 1px solid #e5ebe7;
+      text-align: center;
+    }
+
+    .price-item .emoji {
+      font-size: 19px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .price-item strong {
+      display: block;
+      font-size: 13px;
+      color: #24292f;
+    }
+
+    .price-item span {
+      display: block;
+      margin-top: 3px;
+      color: #18a558;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .price-item.full {
+      grid-column: 1 / -1;
+    }
+
+    /* =========================================================
+       ORDER STEPS
+    ========================================================= */
+
+    .steps {
+      margin-bottom: 17px;
+      padding: 15px;
+      border-radius: 15px;
+      background: #f8fbf9;
+      border: 1px solid #e3ebe6;
+    }
+
+    .step {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .step + .step {
+      margin-top: 12px;
+    }
+
+    .step-number {
+      width: 25px;
+      height: 25px;
+      flex: 0 0 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #18a558;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .step-text strong {
+      display: block;
+      font-size: 12px;
+      color: #24292f;
+      margin-bottom: 2px;
+    }
+
+    .step-text span {
+      color: #737b83;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    /* =========================================================
        CARD
-    ========================================= */
+    ========================================================= */
 
     .card {
-      background: #fff;
-      border: 1px solid #e1e5e8;
-      border-radius: 13px;
+      background: #ffffff;
+      border: 1px solid #e1e6e3;
+      border-radius: 15px;
       padding: 16px;
       margin-bottom: 16px;
     }
 
     .card-title {
-      color: #263238;
+      color: #20262c;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 15px;
     }
 
-
-    /* =========================================
+    /* =========================================================
        LABELS
-    ========================================= */
+    ========================================================= */
 
     label {
       display: block;
-      color: #444;
-      font-size: 13px;
-      font-weight: 600;
+      color: #444b52;
+      font-size: 12px;
+      font-weight: 700;
       margin-bottom: 6px;
     }
 
     .required {
-      color: #d00000;
+      color: #d92d20;
     }
 
-
-    /* =========================================
+    /* =========================================================
        INPUTS
-    ========================================= */
+    ========================================================= */
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #cfd6d2;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #202124;
+      outline: none;
+      font-size: 13px;
+      transition: 0.2s ease;
+    }
 
     input,
     select {
-      width: 100%;
-      height: 44px;
-
+      height: 45px;
       padding: 10px 12px;
-
-      background: #fff;
-
-      border: 1px solid #cfd5d9;
-      border-radius: 9px;
-
-      color: #222;
-      font-size: 14px;
-
-      outline: none;
-
       margin-bottom: 13px;
+    }
 
-      transition:
-        border-color 0.2s,
-        box-shadow 0.2s;
+    textarea {
+      min-height: 80px;
+      padding: 11px 12px;
+      resize: vertical;
+      margin-bottom: 4px;
     }
 
     input:focus,
-    select:focus {
-      border-color: #28a745;
-
-      box-shadow:
-        0 0 0 3px rgba(40, 167, 69, 0.10);
+    select:focus,
+    textarea:focus {
+      border-color: #18a558;
+      box-shadow: 0 0 0 3px rgba(24, 165, 88, 0.10);
     }
 
-    input::placeholder {
-      color: #999;
+    input::placeholder,
+    textarea::placeholder {
+      color: #9aa1a8;
     }
 
     .help-text {
-      color: #777;
-      font-size: 11px;
-      line-height: 1.45;
+      color: #7a8188;
+      font-size: 10px;
+      line-height: 1.5;
       margin-top: -7px;
       margin-bottom: 13px;
     }
 
+    /* =========================================================
+       FILE LINK
+    ========================================================= */
 
-    /* =========================================
-       PRINT COLOR
-    ========================================= */
+    .file-note {
+      padding: 10px;
+      margin: -3px 0 15px;
+      border-radius: 9px;
+      background: #fff9e8;
+      color: #7b641c;
+      border: 1px solid #f2e4b4;
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    /* =========================================================
+       RADIO OPTIONS
+    ========================================================= */
 
     .radio-group {
       display: flex;
-      gap: 10px;
-      margin-bottom: 16px;
+      gap: 9px;
+      margin-bottom: 15px;
     }
 
     .radio-option {
       flex: 1;
-
-      border: 1.5px solid #d0d5d8;
-      border-radius: 10px;
-
-      padding: 12px 8px;
-
-      background: #fff;
-
+      position: relative;
+      padding: 12px 7px;
+      border: 1.5px solid #d2d8d5;
+      border-radius: 11px;
+      background: #ffffff;
       text-align: center;
-
       cursor: pointer;
-
-      transition: 0.2s;
+      transition: 0.2s ease;
     }
 
     .radio-option input {
-      display: none;
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      width: 0;
+      height: 0;
     }
 
     .radio-option.selected {
-      border-color: #28a745;
-      background: #f2fff5;
-
-      box-shadow:
-        0 0 0 1px #28a745;
+      border-color: #18a558;
+      background: #f0fff5;
+      box-shadow: 0 0 0 1px #18a558;
     }
 
     .radio-option strong {
       display: block;
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 3px;
     }
 
     .radio-option small {
-      color: #666;
-      font-size: 11px;
+      color: #697178;
+      font-size: 10px;
     }
 
-
-    /* =========================================
+    /* =========================================================
        COPIES
-    ========================================= */
+    ========================================================= */
 
     .copies-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 15px;
+      margin: 2px 0 15px;
     }
 
     .copies-row label {
@@ -265,43 +418,40 @@
     .copies-control {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
     }
 
     .counter-btn {
       width: 34px;
       height: 34px;
-
-      border: 1px solid #ccc;
-      border-radius: 7px;
-
-      background: #f4f4f4;
-
+      border: 1px solid #ccd2cf;
+      border-radius: 8px;
+      background: #f5f7f6;
+      color: #202124;
       font-size: 18px;
-      font-weight: 700;
-
+      font-weight: 800;
       cursor: pointer;
     }
 
     .counter-btn:active {
-      transform: scale(0.95);
+      transform: scale(0.94);
     }
 
     .copies-number {
-      min-width: 25px;
+      min-width: 24px;
       text-align: center;
-      font-weight: 700;
+      font-weight: 800;
+      font-size: 14px;
     }
 
-
-    /* =========================================
+    /* =========================================================
        LOCATION
-    ========================================= */
+    ========================================================= */
 
     .location-container {
       display: flex;
       gap: 8px;
-      margin-bottom: 4px;
+      align-items: flex-start;
     }
 
     .location-container input {
@@ -310,88 +460,84 @@
     }
 
     .gps-button {
-      width: 95px;
-      height: 44px;
-
+      width: 91px;
+      height: 45px;
       border: none;
-      border-radius: 9px;
-
-      background: #007bff;
-      color: white;
-
-      font-size: 12px;
-      font-weight: 700;
-
+      border-radius: 10px;
+      background: #1677ff;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
       cursor: pointer;
-
       white-space: nowrap;
     }
 
     .gps-button:active {
-      transform: scale(0.98);
+      transform: scale(0.97);
     }
 
-
-    /* =========================================
+    /* =========================================================
        BILL
-    ========================================= */
+    ========================================================= */
+
+    .bill-box {
+      padding: 14px;
+      border-radius: 11px;
+      background: #f8faf9;
+      border: 1px solid #e4e9e6;
+    }
 
     .bill-row {
       display: flex;
       justify-content: space-between;
-
-      color: #555;
-      font-size: 13px;
-
-      margin-bottom: 8px;
+      gap: 10px;
+      color: #5f666d;
+      font-size: 12px;
+      margin-bottom: 9px;
     }
 
     .bill-total {
       display: flex;
       justify-content: space-between;
-
-      color: #28a745;
+      gap: 10px;
+      color: #18a558;
       font-size: 18px;
-      font-weight: 800;
-
-      border-top: 1px dashed #ccc;
-
-      margin-top: 10px;
+      font-weight: 850;
+      border-top: 1px dashed #cdd4d0;
+      margin-top: 11px;
       padding-top: 12px;
     }
 
+    .estimate-note {
+      margin-top: 10px;
+      color: #777f86;
+      font-size: 10px;
+      line-height: 1.45;
+    }
 
-    /* =========================================
+    /* =========================================================
        PAYMENT
-    ========================================= */
+    ========================================================= */
 
     .payment-note {
-      color: #666;
-      font-size: 11px;
+      color: #686f76;
+      font-size: 10px;
       line-height: 1.5;
-
       margin-bottom: 12px;
     }
 
     .upi-button {
       display: block;
-
       width: 100%;
-
       padding: 13px;
-
-      background: #28a745;
-      color: white;
-
-      border-radius: 9px;
-
+      background: #18a558;
+      color: #ffffff;
+      border-radius: 10px;
       text-align: center;
       text-decoration: none;
-
-      font-size: 14px;
-      font-weight: 700;
-
-      margin-bottom: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
     }
 
     .upi-button:active {
@@ -400,87 +546,83 @@
 
     .upi-id {
       text-align: center;
-
-      color: #666;
-      font-size: 12px;
-
+      color: #6c737a;
+      font-size: 10px;
       margin-bottom: 14px;
-
       word-break: break-word;
     }
 
+    .payment-warning {
+      padding: 9px 10px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      background: #fff7e6;
+      border: 1px solid #f1dfb3;
+      color: #725b18;
+      font-size: 10px;
+      line-height: 1.45;
+    }
 
-    /* =========================================
-       SUBMIT BUTTON
-    ========================================= */
+    /* =========================================================
+       SUBMIT
+    ========================================================= */
 
     .submit-button {
       width: 100%;
-
       border: none;
-      border-radius: 11px;
-
+      border-radius: 12px;
       padding: 15px;
-
-      background: #28a745;
-      color: white;
-
-      font-size: 16px;
-      font-weight: 800;
-
+      background: #18a558;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 850;
       cursor: pointer;
-
-      box-shadow:
-        0 4px 12px rgba(40, 167, 69, 0.25);
-
-      transition: 0.2s;
+      box-shadow: 0 5px 15px rgba(24, 165, 88, 0.22);
+      transition: 0.2s ease;
     }
 
     .submit-button:hover {
-      background: #218838;
+      background: #148c4b;
     }
 
     .submit-button:active {
       transform: scale(0.99);
     }
 
+    .submit-button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
 
-    /* =========================================
-       PRIVACY NOTE
-    ========================================= */
+    /* =========================================================
+       PRIVACY
+    ========================================================= */
 
     .privacy-note {
       text-align: center;
-
-      color: #777;
-
-      font-size: 11px;
-      line-height: 1.5;
-
-      margin-top: 15px;
+      color: #777f86;
+      font-size: 10px;
+      line-height: 1.55;
+      margin: 15px 3px 0;
     }
 
+    .privacy-note strong {
+      color: #555d64;
+    }
 
-    /* =========================================
-       INSTAGRAM BUTTON
-    ========================================= */
+    /* =========================================================
+       INSTAGRAM
+    ========================================================= */
 
     .instagram-button {
       display: flex;
-
       align-items: center;
       justify-content: center;
-
       gap: 8px;
-
       width: 100%;
-
       margin-top: 18px;
-
-      padding: 12px;
-
-      border-radius: 10px;
-
+      padding: 13px;
+      border-radius: 11px;
       background:
         linear-gradient(
           45deg,
@@ -489,664 +631,311 @@
           #8134af,
           #515bd4
         );
-
-      color: #fff;
-
+      color: #ffffff;
       text-decoration: none;
-
-      font-size: 14px;
-      font-weight: 700;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+      font-size: 13px;
+      font-weight: 800;
+      transition: 0.2s ease;
     }
 
     .instagram-button:hover {
       transform: translateY(-1px);
-
-      box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
     }
 
-    .instagram-button svg {
-      flex-shrink: 0;
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #8a9198;
+      font-size: 10px;
+      line-height: 1.5;
     }
 
+    .footer strong {
+      color: #596168;
+    }
 
-    /* =========================================
-       HIDDEN
-    ========================================= */
+    /* =========================================================
+       SUCCESS / INFO MESSAGE
+    ========================================================= */
+
+    .info-message {
+      display: none;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      background: #eefaf3;
+      border: 1px solid #ccebd8;
+      color: #166c3b;
+      font-size: 11px;
+      line-height: 1.5;
+    }
 
     .hidden {
-      display: none;
+      display: none !important;
     }
 
-
-    /* =========================================
+    /* =========================================================
        MOBILE
-    ========================================= */
+    ========================================================= */
 
     @media (max-width: 380px) {
+      body {
+        padding: 8px;
+      }
 
-      .container {
+      .content {
         padding: 15px;
       }
 
-      .brand h1 {
-        font-size: 23px;
+      .hero {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .brand-name {
+        font-size: 24px;
+      }
+
+      .trust-banner {
+        margin-left: 15px;
+        margin-right: 15px;
       }
 
       .trust-item {
-        font-size: 9px;
+        font-size: 8px;
       }
 
       .trust-item strong {
-        font-size: 10px;
+        font-size: 9px;
       }
 
       .radio-group {
         gap: 6px;
       }
 
-      .radio-option {
-        padding: 10px 5px;
-      }
-
       .gps-button {
-        width: 85px;
+        width: 82px;
       }
     }
+  </style></head><body>  <main class="container"><!-- =======================================================
+     HERO
+======================================================== -->
 
-  </style>
-</head>
+<header class="hero">
+
+  <div class="logo-mark" aria-hidden="true">
+    M
+  </div>
+
+  <h1 class="brand-name">
+    Mumbra Minutes
+  </h1>
+
+  <p class="hero-subtitle">
+    Fast &amp; convenient doorstep printing<br>
+    for students, residents &amp; local businesses.
+  </p>
+
+  <div class="location-badge">
+    📍 Serving Mumbra &amp; Kausa
+  </div>
+
+</header>
 
 
-<body>
+<div class="content">
 
-  <main class="container">
+  <!-- =====================================================
+       TRUST
+  ====================================================== -->
+
+  <section class="trust-banner" aria-label="Service benefits">
+
+    <div class="trust-item">
+      <span class="trust-icon">🔒</span>
+      <strong>Privacy Focused</strong>
+      Files handled carefully
+    </div>
+
+    <div class="trust-item">
+      <span class="trust-icon">⚡</span>
+      <strong>Local &amp; Fast</strong>
+      Doorstep service
+    </div>
+
+    <div class="trust-item">
+      <span class="trust-icon">💰</span>
+      <strong>Transparent</strong>
+      Simple pricing
+    </div>
+
+  </section>
 
 
-    <!-- =====================================
-         HEADER
-    ====================================== -->
+  <!-- =====================================================
+       PRICING
+  ====================================================== -->
 
-    <header class="brand">
+  <section class="pricing-card">
 
-      <h1>
-        ⚡ Mumbra Minutes
-      </h1>
+    <h2 class="section-heading">
+      💰 Our Pricing
+    </h2>
 
-      <p class="subtitle">
-        Fast Doorstep Printing Service<br>
-        📍 Mumbra &amp; Kausa
+    <div class="price-grid">
+
+      <div class="price-item">
+        <span class="emoji">🖤</span>
+        <strong>A4 B&amp;W Print</strong>
+        <span>₹4 / page</span>
+      </div>
+
+      <div class="price-item">
+        <span class="emoji">🎨</span>
+        <strong>A4 Colour Print</strong>
+        <span>₹10 / page</span>
+      </div>
+
+      <div class="price-item full">
+        <span class="emoji">📸</span>
+        <strong>Passport Size Photos</strong>
+        <span>₹35 / 6 photos</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       HOW IT WORKS
+  ====================================================== -->
+
+  <section class="steps">
+
+    <h2 class="section-heading">
+      🚀 How It Works
+    </h2>
+
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-text">
+        <strong>Fill your order details</strong>
+        <span>Enter your contact, document, printing and delivery information.</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-text">
+        <strong>Submit your order</strong>
+        <span>We receive your request and verify the details.</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-text">
+        <strong>Printing &amp; delivery</strong>
+        <span>Your documents are printed and delivered to your selected location.</span>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FORM
+  ====================================================== -->
+
+  <form
+    id="orderForm"
+    action="https://formspree.io/f/meajerbk"
+    method="POST"
+  >
+
+    <div
+      id="infoMessage"
+      class="info-message"
+      role="status"
+    ></div>
+
+
+    <!-- ===================================================
+         CONTACT DETAILS
+    ==================================================== -->
+
+    <section class="card">
+
+      <div class="card-title">
+        👤 Contact Details
+      </div>
+
+      <label for="name">
+        Full Name <span class="required">*</span>
+      </label>
+
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your full name"
+        minlength="2"
+        maxlength="60"
+        autocomplete="name"
+        required
+      >
+
+      <label for="phone">
+        Mobile Number <span class="required">*</span>
+      </label>
+
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="10-digit mobile number"
+        inputmode="numeric"
+        pattern="[6-9][0-9]{9}"
+        maxlength="10"
+        autocomplete="tel"
+        required
+      >
+
+      <p class="help-text">
+        We'll use this number only for order-related communication.
       </p>
-
-    </header>
-
-
-    <!-- =====================================
-         TRUST BANNER
-    ====================================== -->
-
-    <section class="trust-banner">
-
-      <div class="trust-item">
-        🛡️
-        <strong>Privacy Focused</strong>
-        Files handled carefully
-      </div>
-
-      <div class="trust-item">
-        ⚡
-        <strong>Fast Service</strong>
-        Local doorstep delivery
-      </div>
-
-      <div class="trust-item">
-        💰
-        <strong>Simple Pricing</strong>
-        Clear charges
-      </div>
 
     </section>
 
 
-    <!-- =====================================
-         ORDER FORM
-    ====================================== -->
-
-    <form
-      id="orderForm"
-      action="https://formspree.io/f/meajerbk"
-      method="POST"
-    >
-
-
-      <!-- ===================================
-           CONTACT DETAILS
-      ==================================== -->
-
-      <section class="card">
-
-        <div class="card-title">
-          👤 Contact Details
-        </div>
-
-
-        <label for="name">
-
-          Full Name
-          <span class="required">*</span>
-
-        </label>
-
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Enter your full name"
-          minlength="2"
-          maxlength="60"
-          autocomplete="name"
-          required
-        >
-
-
-        <label for="phone">
-
-          Mobile Number
-          <span class="required">*</span>
-
-        </label>
-
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          placeholder="10-digit mobile number"
-          inputmode="numeric"
-          pattern="[6-9][0-9]{9}"
-          maxlength="10"
-          autocomplete="tel"
-          required
-        >
-
-        <p class="help-text">
-          Enter a valid 10-digit Indian mobile number.
-        </p>
-
-      </section>
-
-
-      <!-- ===================================
-           DOCUMENT DETAILS
-      ==================================== -->
-
-      <section class="card">
-
-        <div class="card-title">
-          📄 Document Details
-        </div>
-
-
-        <label for="file-link">
-
-          File / Google Drive Link
-          <span class="required">*</span>
-
-        </label>
-
-        <input
-          type="url"
-          id="file-link"
-          name="file_link"
-          placeholder="Paste your Google Drive / file link"
-          required
-        >
-
-        <p class="help-text">
-          Make sure the link is accessible so the document can be printed.
-        </p>
-
-
-        <!-- PRINT COLOR -->
-
-        <label>
-          Print Type
-          <span class="required">*</span>
-        </label>
-
-        <div class="radio-group">
-
-
-          <label
-            class="radio-option selected"
-            id="bw-option"
-          >
-
-            <input
-              type="radio"
-              name="print_color"
-              value="Black & White"
-              checked
-              onchange="selectColor('BW')"
-            >
-
-            <strong>
-              🖤 B&amp;W
-            </strong>
-
-            <small>
-              ₹4 / page
-            </small>
-
-          </label>
-
-
-          <label
-            class="radio-option"
-            id="color-option"
-          >
-
-            <input
-              type="radio"
-              name="print_color"
-              value="Colour"
-              onchange="selectColor('Color')"
-            >
-
-            <strong>
-              🎨 Colour
-            </strong>
-
-            <small>
-              ₹10 / page
-            </small>
-
-          </label>
-
-
-        </div>
-
-
-        <!-- PAPER SIZE -->
-
-        <label for="paper-size">
-          Paper Size
-        </label>
-
-        <select
-          id="paper-size"
-          name="paper_size"
-        >
-
-          <option value="A4">
-            A4
-          </option>
-
-        </select>
-
-
-        <!-- PRINT SIDES -->
-
-        <label for="print-sides">
-          Printing Side
-        </label>
-
-        <select
-          id="print-sides"
-          name="print_sides"
-        >
-
-          <option value="Single Sided">
-            Single-Sided
-          </option>
-
-          <option value="Double Sided">
-            Double-Sided
-          </option>
-
-        </select>
-
-
-        <!-- COPIES -->
-
-        <div class="copies-row">
-
-          <label>
-            Number of Copies
-          </label>
-
-          <div class="copies-control">
-
-            <button
-              type="button"
-              class="counter-btn"
-              onclick="changeCopies(-1)"
-              aria-label="Decrease copies"
-            >
-              −
-            </button>
-
-            <span
-              id="copiesDisplay"
-              class="copies-number"
-            >
-              1
-            </span>
-
-            <button
-              type="button"
-              class="counter-btn"
-              onclick="changeCopies(1)"
-              aria-label="Increase copies"
-            >
-              +
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <input
-          type="hidden"
-          id="copies"
-          name="copies"
-          value="1"
-        >
-
-
-        <!-- PAGES -->
-
-        <label for="pages">
-
-          Total Pages in File
-          <span class="required">*</span>
-
-        </label>
-
-        <input
-          type="number"
-          id="pages"
-          name="total_pages"
-          value="1"
-          min="1"
-          max="500"
-          inputmode="numeric"
-          required
-        >
-
-        <p class="help-text">
-          Enter the total number of pages in your document.
-        </p>
-
-      </section>
-
-
-      <!-- ===================================
-           DELIVERY DETAILS
-      ==================================== -->
-
-      <section class="card">
-
-        <div class="card-title">
-          📍 Delivery Details
-        </div>
-
-
-        <label for="location">
-
-          Delivery Location / Google Maps Link
-          <span class="required">*</span>
-
-        </label>
-
-
-        <div class="location-container">
-
-          <input
-            type="url"
-            id="location"
-            name="delivery_location"
-            placeholder="Paste Google Maps link"
-            required
-          >
-
-          <button
-            type="button"
-            class="gps-button"
-            onclick="getLocation()"
-          >
-            📍 GPS
-          </button>
-
-        </div>
-
-
-        <p class="help-text">
-          Tap GPS to use your current location, or paste a Google Maps link manually.
-        </p>
-
-
-        <label for="instructions">
-
-          Delivery Instructions
-
-        </label>
-
-
-        <select
-          id="instructions"
-          name="delivery_instructions"
-        >
-
-          <option value="Call before delivery">
-            📞 Call before delivery
-          </option>
-
-          <option value="Do not ring bell">
-            🔕 Do not ring the bell
-          </option>
-
-          <option value="Leave with security/guard">
-            🛡️ Leave with security/guard
-          </option>
-
-          <option value="Contact me on arrival">
-            📞 Contact me on arrival
-          </option>
-
-        </select>
-
-      </section>
-
-
-      <!-- ===================================
-           BILL SUMMARY
-      ==================================== -->
-
-      <section class="card">
-
-        <div class="card-title">
-          🧾 Bill Summary
-        </div>
-
-
-        <div class="bill-row">
-
-          <span>
-            Printing Charge
-          </span>
-
-          <span id="printingCharge">
-            ₹4
-          </span>
-
-        </div>
-
-
-        <div class="bill-row">
-
-          <span>
-            Delivery Fee
-          </span>
-
-          <span>
-            ₹15
-          </span>
-
-        </div>
-
-
-        <div class="bill-total">
-
-          <span>
-            Grand Total
-          </span>
-
-          <span id="grandTotal">
-            ₹19
-          </span>
-
-        </div>
-
-
-        <!-- Hidden Formspree values -->
-
-        <input
-          type="hidden"
-          name="printing_charge"
-          id="hiddenPrintingCharge"
-          value="4"
-        >
-
-        <input
-          type="hidden"
-          name="delivery_fee"
-          value="15"
-        >
-
-        <input
-          type="hidden"
-          name="grand_total"
-          id="hiddenGrandTotal"
-          value="19"
-        >
-
-      </section>
-
-
-      <!-- ===================================
-           PAYMENT
-      ==================================== -->
-
-      <section class="card">
-
-        <div class="card-title">
-          💳 Payment Method
-        </div>
-
-
-        <label for="paymentMethod">
-
-          Choose Payment Method
-          <span class="required">*</span>
-
-        </label>
-
-
-        <select
-          id="paymentMethod"
-          name="payment_method"
-          onchange="togglePayment()"
-          required
-        >
-
-          <option value="Cash on Delivery">
-            Cash on Delivery
-          </option>
-
-          <option value="Online Payment - UPI">
-            Online Payment (UPI)
-          </option>
-
-        </select>
-
-
-        <!-- ONLINE PAYMENT -->
-
-        <div
-          id="onlinePayment"
-          class="hidden"
-        >
-
-          <p class="payment-note">
-
-            Pay the exact order amount using any supported UPI app.
-
-          </p>
-
-
-          <a
-            id="upiButton"
-            class="upi-button"
-            href="#"
-          >
-            📲 Pay ₹19 via UPI
-          </a>
-
-
-          <p class="upi-id">
-
-            UPI ID:
-            <strong>
-              amirhamja8158@okhdfcbank
-            </strong>
-
-          </p>
-
-
-          <label for="transactionId">
-
-            Transaction ID / UTR
-            <span class="required">*</span>
-
-          </label>
-
-
-          <input
-            type="text"
-            id="transactionId"
-            name="transaction_id"
-            placeholder="Enter UTR / reference number"
-            maxlength="50"
-          >
-
-          <p class="help-text">
-            Enter the UTR/reference number after completing the payment.
-          </p>
-
-        </div>
-
-      </section>
-
-
-      <!-- ===================================
-           SUBMIT
-      ==================================== -->
-
-      <button
-        type="submit"
-        class="submit-button"
+    <!-- ===================================================
+         DOCUMENT
+    ==================================================== -->
+
+    <section class="card">
+
+      <div class="card-title">
+        📄 Document &amp; Printing Details
+      </div>
+
+      <label for="file-link">
+        File / Document Link <span class="required">*</span>
+      </label>
+
+      <input
+        type="url"
+        id="file-link"
+        name="file_link"
+        placeholder="Paste Google Drive / file link"
+        required
       >
-        🚀 Place Order
-      </button>
 
-
-      <!-- PRIVACY -->
-
-      <p class="privacy-note">
-
-        🔒 Your document is used on
+      <div class="file-note">
+        💡 <strong>Important:</strong> Make sure your file link is accessible.
+        
