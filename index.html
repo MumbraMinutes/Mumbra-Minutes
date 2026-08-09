@@ -1,32 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10b981">
-  <meta name="description" content="Mumbra Minutes - Doorstep printing, passport photos, lamination and emergency student supplies in Mumbra and Kausa.">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#10b981">
   <title>Mumbra Minutes | Print & Emergency Supplies</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;}
-    html{scroll-behavior:smooth;}
     body{background:#f3f5f7;color:#1f2937;padding:14px;-webkit-tap-highlight-color:transparent;}
     button,input,select,textarea{font:inherit;touch-action:manipulation;}
     .container{width:100%;max-width:500px;margin:0 auto;background:#fff;border-radius:18px;padding:18px;box-shadow:0 5px 25px rgba(0,0,0,.07);}
     .header{text-align:center;margin-bottom:18px;}
     .logo{width:82px;height:82px;border-radius:50%;object-fit:cover;border:2px solid #e5f7ee;box-shadow:0 3px 12px rgba(0,0,0,.08);margin-bottom:9px;}
-    .brand-name{font-size:24px;font-weight:800;color:#111827;}
-    .tagline{margin-top:4px;color:#6b7280;font-size:13px;line-height:1.5;}
+    .brand-name{font-size:24px;font-weight:800;color:#111827;}.tagline{margin-top:4px;color:#6b7280;font-size:13px;line-height:1.5;}
     .trust{display:flex;gap:6px;background:#f8faf9;border:1px solid #e5e7eb;border-radius:12px;padding:11px 5px;margin-bottom:18px;}
-    .trust-item{flex:1;text-align:center;font-size:10px;color:#6b7280;line-height:1.4;}
-    .trust-item strong{display:block;color:#111827;font-size:11px;margin:2px 0;}
+    .trust-item{flex:1;text-align:center;font-size:10px;color:#6b7280;line-height:1.4;}.trust-item strong{display:block;color:#111827;font-size:11px;margin:2px 0;}
     .card{background:#fff;border:1px solid #e5e7eb;border-radius:13px;padding:15px;margin-bottom:16px;}
     .card-title{font-size:16px;font-weight:750;color:#111827;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
-    label{display:block;font-size:12px;font-weight:650;color:#374151;margin-bottom:6px;}
-    .required{color:#dc2626;}
+    label{display:block;font-size:12px;font-weight:650;color:#374151;margin-bottom:6px;}.required{color:#dc2626;}
     input,select,textarea{width:100%;border:1px solid #d1d5db;border-radius:9px;padding:11px 12px;background:#fff;color:#111827;font-size:13px;outline:none;margin-bottom:11px;transition:.2s;}
-    textarea{resize:vertical;min-height:70px;}
-    input:focus,select:focus,textarea:focus{border-color:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.10);}
-    input::placeholder,textarea::placeholder{color:#9ca3af;}
+    textarea{resize:vertical;min-height:70px;}input:focus,select:focus,textarea:focus{border-color:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.10);}
     .help{color:#6b7280;font-size:11px;line-height:1.5;margin-top:-5px;margin-bottom:12px;}
     .rules-info{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;border-radius:9px;padding:10px;font-size:11px;line-height:1.5;margin-bottom:12px;}
     .print-rule{position:relative;background:#fafafa;border:1px solid #10b981;border-radius:11px;padding:13px;margin-bottom:10px;}
@@ -34,24 +25,20 @@
     .rule-number{background:#10b981;color:white;width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;}
     .remove-rule{width:30px;height:30px;border:0;border-radius:50%;background:#fee2e2;color:#dc2626;font-size:17px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;}
     .rule-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-    .rule-grid .full{grid-column:1 / -1;}
     .add-rule{width:100%;border:1px dashed #10b981;background:#ecfdf5;color:#047857;border-radius:9px;padding:12px;font-weight:750;font-size:13px;cursor:pointer;}
-    .item-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed #e5e7eb;}
-    .item-row:last-child{border-bottom:0;}
-    .item-name{flex:1;font-size:13px;color:#374151;}
-    .item-price{display:block;color:#6b7280;font-size:10px;margin-top:2px;}
+    .item-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed #e5e7eb;}.item-row:last-child{border-bottom:0;}
+    .item-name{flex:1;font-size:13px;color:#374151;}.item-price{display:block;color:#6b7280;font-size:10px;margin-top:2px;}
     .qty{width:68px !important;margin:0 !important;text-align:center;padding:9px 5px !important;}
-    .sub-box{background:#f9fafb;border:1px solid #e5e7eb;border-radius:9px;padding:10px;margin:8px 0;}
-    .location-row{display:flex;gap:7px;align-items:stretch;}
-    .location-row input{flex:1;min-width:0;}
+    .sub-box{background:#f9fafb;border:1px solid #e5e7eb;border-radius:9px;padding:12px;margin:10px 0 6px 0;}
+    .location-row{display:flex;gap:7px;align-items:stretch;}.location-row input{flex:1;min-width:0;}
     .gps-btn{width:92px;flex-shrink:0;border:0;border-radius:9px;background:#2563eb;color:#fff;font-size:12px;font-weight:750;cursor:pointer;}
     .bill-row{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:#4b5563;margin-bottom:8px;}
     .bill-total{display:flex;justify-content:space-between;margin-top:11px;padding-top:12px;border-top:1px dashed #d1d5db;color:#059669;font-size:19px;font-weight:800;}
     .upi-button{display:block;width:100%;text-align:center;text-decoration:none;background:#10b981;color:#fff;border-radius:9px;padding:13px;font-size:13px;font-weight:750;margin-bottom:10px;}
-    .upi-id{text-align:center;color:#6b7280;font-size:11px;margin-bottom:12px;word-break:break-all;}
-    .hidden{display:none !important;}
-    .submit-btn{width:100%;border:0;border-radius:11px;background:#25d366;color:#fff;padding:15px;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(37,211,102,.35);display:flex;align-items:center;justify-content:center;gap:8px;}
-    .submit-btn:active{transform:scale(.98);}
+    .upi-id{text-align:center;color:#6b7280;font-size:11px;margin-bottom:12px;word-break:break-all;}.hidden{display:none !important;}
+    .submit-btn{width:100%;border:0;border-radius:11px;background:#0088cc;color:#fff;padding:15px;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(0,136,204,.35);display:flex;align-items:center;justify-content:center;gap:8px;}.submit-btn:disabled{opacity:.65;cursor:not-allowed;}
+    .guide{background:#f8fafc;border:1px solid #e2e8f0;border-radius:13px;padding:15px;margin-top:20px;}.guide-title{font-size:14px;font-weight:750;color:#334155;margin-bottom:10px;}
+    .step{display:flex;gap:10px;font-size:12px;color:#475569;margin-bottom:8px;line-height:1.4;}.step-num{background:#cbd5e1;color:#1e293b;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;}
     .instagram{position:fixed;right:14px;bottom:14px;z-index:100;display:flex;align-items:center;gap:6px;padding:10px 15px;border-radius:50px;color:#fff;text-decoration:none;font-size:12px;font-weight:750;background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);box-shadow:0 4px 15px rgba(0,0,0,.22);}
   </style>
 </head>
@@ -74,50 +61,26 @@
       <div class="card-title">👤 Contact Details</div>
       <label for="name">Full Name <span class="required">*</span></label>
       <input type="text" id="name" placeholder="Enter your full name" required>
-
       <label for="phone">Mobile Number <span class="required">*</span></label>
       <input type="tel" id="phone" placeholder="10-digit mobile number" maxlength="10" required>
     </section>
 
     <section class="card">
       <div class="card-title">📄 Document & Printing</div>
-      <label for="fileLink">Google Drive / File Link <span class="required">*</span></label>
-      <input type="url" id="fileLink" placeholder="Paste your Google Drive / file link" required>
-      <p class="help">Set Google Drive access to <strong>Anyone with the link can view</strong>.</p>
-
-      <div class="rules-info">💡 Need different settings for different pages? Add a separate page rule below.</div>
-
+      <label for="fileLink">Google Drive / Document Link <span class="required">*</span></label>
+      <input type="url" id="fileLink" placeholder="Paste your Google Drive link" required>
+      <p class="help">Set Google Drive access to <strong>Anyone with link can view</strong>.</p>
+      <div class="rules-info">💡 Need different settings for different pages? Add a rule below.</div>
       <div id="rulesContainer">
         <div class="print-rule" data-rule="1">
-          <div class="rule-header">
-            <span class="rule-number">1</span>
-            <button type="button" class="remove-rule" aria-label="Remove rule" style="visibility:hidden;">×</button>
-          </div>
+          <div class="rule-header"><span class="rule-number">1</span><button type="button" class="remove-rule" style="visibility:hidden;">×</button></div>
           <label>Which Page(s)? <span class="required">*</span></label>
           <input type="text" class="rule-pages" placeholder="e.g. All, Page 1-5" required>
           <div class="rule-grid">
-            <div>
-              <label>Print Type</label>
-              <select class="rule-type">
-                <option value="Black & White - ₹4/page">🖤 B&W — ₹4/page</option>
-                <option value="Colour - ₹10/page">🎨 Colour — ₹10/page</option>
-              </select>
-            </div>
-            <div>
-              <label>Pages Count</label>
-              <input type="number" class="rule-pages-count" value="1" min="1" required>
-            </div>
-            <div>
-              <label>Copies</label>
-              <input type="number" class="rule-copies" value="1" min="1" required>
-            </div>
-            <div>
-              <label>Side</label>
-              <select class="rule-side">
-                <option value="Single-Sided">Single-Sided</option>
-                <option value="Double-Sided">Double-Sided</option>
-              </select>
-            </div>
+            <div><label>Print Type</label><select class="rule-type"><option value="Black & White - ₹4/page">🖤 B&W — ₹4/page</option><option value="Colour - ₹10/page">🎨 Colour — ₹10/page</option></select></div>
+            <div><label>Pages Count</label><input type="number" class="rule-pages-count" value="1" min="1" required></div>
+            <div><label>Copies</label><input type="number" class="rule-copies" value="1" min="1" required></div>
+            <div><label>Side</label><select class="rule-side"><option value="Single-Sided">Single-Sided</option><option value="Double-Sided">Double-Sided</option></select></div>
           </div>
         </div>
       </div>
@@ -126,53 +89,29 @@
 
     <section class="card">
       <div class="card-title">🖼️ Photos & Lamination</div>
-      <div class="item-row">
-        <div class="item-name">Passport Photos <span class="item-price">₹35 / set of 6 photos</span></div>
-        <input type="number" id="photoSets" class="qty" value="0" min="0">
-      </div>
+      <div class="item-row"><div class="item-name">Passport Photos <span class="item-price">₹35 / set of 6</span></div><input type="number" id="photoSets" class="qty" value="0" min="0"></div>
       <div id="photoDetails" class="sub-box hidden">
-        <label for="photoLink">📸 Passport Photo Image Link</label>
-        <input type="url" id="photoLink" placeholder="Paste Google Drive image link">
+        <label for="photoLink">📸 Passport Photo File Link</label>
+        <input type="url" id="photoLink" placeholder="Paste image Drive link for photos">
       </div>
-      <div class="item-row">
-        <div class="item-name">Page Lamination <span class="item-price">₹35 / page</span></div>
-        <input type="number" id="laminationPages" class="qty" value="0" min="0">
-      </div>
+      <div class="item-row"><div class="item-name">Page Lamination <span class="item-price">₹35 / page</span></div><input type="number" id="laminationPages" class="qty" value="0" min="0"></div>
     </section>
 
     <section class="card">
       <div class="card-title">✏️ Emergency Student Supplies</div>
-      <div class="item-row">
-        <div class="item-name">Pens <span class="item-price">₹10 each</span></div>
-        <input type="number" id="pens" class="qty" value="0" min="0">
-      </div>
-      <div class="item-row">
-        <div class="item-name">Pencil <span class="item-price">₹5 each</span></div>
-        <input type="number" id="pencils" class="qty" value="0" min="0">
-      </div>
-      <div class="item-row">
-        <div class="item-name">Eraser & Sharpener Set <span class="item-price">₹10 / set</span></div>
-        <input type="number" id="erasers" class="qty" value="0" min="0">
-      </div>
-      <div class="item-row">
-        <div class="item-name">Small Stapler with Pins <span class="item-price">₹60 each</span></div>
-        <input type="number" id="staplers" class="qty" value="0" min="0">
-      </div>
-      <div class="item-row">
-        <div class="item-name">Notebook / Longbook <span class="item-price">₹45 each</span></div>
-        <input type="number" id="notebooks" class="qty" value="0" min="0">
-      </div>
+      <div class="item-row"><div class="item-name">Pens <span class="item-price">₹10 each</span></div><input type="number" id="pens" class="qty" value="0" min="0"></div>
+      <div class="item-row"><div class="item-name">Pencil <span class="item-price">₹5 each</span></div><input type="number" id="pencils" class="qty" value="0" min="0"></div>
+      <div class="item-row"><div class="item-name">Eraser Set <span class="item-price">₹10 / set</span></div><input type="number" id="erasers" class="qty" value="0" min="0"></div>
+      <div class="item-row"><div class="item-name">Small Stapler <span class="item-price">₹60 each</span></div><input type="number" id="staplers" class="qty" value="0" min="0"></div>
+      <div class="item-row"><div class="item-name">Notebook <span class="item-price">₹45 each</span></div><input type="number" id="notebooks" class="qty" value="0" min="0"></div>
       <label for="supplyNotes">Special Instructions</label>
-      <textarea id="supplyNotes" placeholder="Example: 1 blue pen and 1 black pen..."></textarea>
+      <textarea id="supplyNotes" placeholder="Example: 1 blue pen, 1 black pen..."></textarea>
     </section>
 
     <section class="card">
       <div class="card-title">📍 Delivery Details</div>
-      <label for="location">Delivery Address / Location Link <span class="required">*</span></label>
-      <div class="location-row">
-        <input type="text" id="location" placeholder="Enter address or tap Get GPS" required>
-        <button type="button" id="gpsBtn" class="gps-btn">📍 Get GPS</button>
-      </div>
+      <label for="location">Delivery Address <span class="required">*</span></label>
+      <div class="location-row"><input type="text" id="location" placeholder="Enter address or tap Get GPS" required><button type="button" id="gpsBtn" class="gps-btn">📍 Get GPS</button></div>
       <label for="deliveryNotes">Delivery Instructions</label>
       <select id="deliveryNotes">
         <option value="Call before delivery">📞 Call before delivery</option>
@@ -184,7 +123,7 @@
     <section class="card">
       <div class="card-title">🧾 Bill Summary</div>
       <div class="bill-row"><span>Printing</span><strong id="printSubtotal">₹4</strong></div>
-      <div class="bill-row"><span>Addons / Supplies</span><strong id="addonsSubtotal">₹0</strong></div>
+      <div class="bill-row"><span>Addons & Supplies</span><strong id="addonsSubtotal">₹0</strong></div>
       <div class="bill-row"><span>Delivery Charge</span><strong>₹20</strong></div>
       <div class="bill-total"><span>Grand Total</span><span id="grandTotal">₹24</span></div>
     </section>
@@ -196,7 +135,6 @@
         <option value="Cash on Delivery">Cash on Delivery</option>
         <option value="Online Payment - UPI">Online Payment — UPI</option>
       </select>
-
       <div id="onlinePayment" class="hidden">
         <a href="#" id="upiButton" class="upi-button">📲 Pay ₹24 via UPI</a>
         <p class="upi-id">UPI ID: <strong>amirhamja8158@okhdfcbank</strong></p>
@@ -205,134 +143,92 @@
       </div>
     </section>
 
-    <button type="submit" id="submitBtn" class="submit-btn">💬 Send Order via WhatsApp</button>
+    <button type="submit" id="submitBtn" class="submit-btn">🚀 Place Order</button>
   </form>
+
+  <section class="guide">
+    <div class="guide-title">💡 How to Order & Guidelines</div>
+    <div class="step"><span class="step-num">1</span><span>Upload file to Drive and set permission to <strong>Anyone with link</strong>.</span></div>
+    <div class="step"><span class="step-num">2</span><span>Select page rules (B&W or Colour, ranges, copies).</span></div>
+    <div class="step"><span class="step-num">3</span><span>Tap <strong>Place Order</strong> to submit.</span></div>
+  </section>
 </div>
 
 <a href="https://www.instagram.com/mumbraminutes" target="_blank" class="instagram">Follow @mumbraminutes</a>
 
 <script>
 "use strict";
-
-// ⚠️ UPDATE THIS PHONE NUMBER TO YOUR WHATSAPP NUMBER (include 91 country code)
-const PHONE_NUMBER = "918158055064"; 
-
+const BOT_TOKEN="8868996533:AAHzWTzFiMpli9_ibHforhnHmKy8b27qBl", CHAT_ID="8868996533";
 const BW=4, COLOR=10, PHOTO=35, LAM=35, PEN=10, PENCIL=5, ERASER=10, STAPLER=60, NOTEBOOK=45, DELIV=20;
-const form = document.getElementById("orderForm");
-const rulesContainer = document.getElementById("rulesContainer");
+const form=document.getElementById("orderForm"), rulesContainer=document.getElementById("rulesContainer");
 
-function calculateTotal() {
-  let printTotal = 0;
-  document.querySelectorAll(".print-rule").forEach(r => {
-    let isColor = r.querySelector(".rule-type").value.includes("Colour");
-    let pages = parseInt(r.querySelector(".rule-pages-count").value) || 1;
-    let copies = parseInt(r.querySelector(".rule-copies").value) || 1;
-    printTotal += pages * copies * (isColor ? COLOR : BW);
+function calculateTotal(){
+  let printTotal=0;
+  document.querySelectorAll(".print-rule").forEach(r=>{
+    let isColor=r.querySelector(".rule-type").value.includes("Colour");
+    let pages=parseInt(r.querySelector(".rule-pages-count").value)||1, copies=parseInt(r.querySelector(".rule-copies").value)||1;
+    printTotal+=pages*copies*(isColor?COLOR:BW);
   });
-
-  let addons = (parseInt(document.getElementById("photoSets").value)||0)*PHOTO +
-               (parseInt(document.getElementById("laminationPages").value)||0)*LAM +
-               (parseInt(document.getElementById("pens").value)||0)*PEN +
-               (parseInt(document.getElementById("pencils").value)||0)*PENCIL +
-               (parseInt(document.getElementById("erasers").value)||0)*ERASER +
-               (parseInt(document.getElementById("staplers").value)||0)*STAPLER +
-               (parseInt(document.getElementById("notebooks").value)||0)*NOTEBOOK;
-
-  let grand = printTotal + addons + DELIV;
-  document.getElementById("printSubtotal").textContent = "₹" + printTotal;
-  document.getElementById("addonsSubtotal").textContent = "₹" + addons;
-  document.getElementById("grandTotal").textContent = "₹" + grand;
-  document.getElementById("upiButton").href = `upi://pay?pa=amirhamja8158@okhdfcbank&pn=Mumbra%20Minutes&am=${grand}&cu=INR`;
-  return { printTotal, addons, grand };
+  let photoSets=parseInt(document.getElementById("photoSets").value)||0;
+  document.getElementById("photoDetails").classList.toggle("hidden", photoSets===0);
+  let addons=photoSets*PHOTO+(parseInt(document.getElementById("laminationPages").value)||0)*LAM+(parseInt(document.getElementById("pens").value)||0)*PEN+(parseInt(document.getElementById("pencils").value)||0)*PENCIL+(parseInt(document.getElementById("erasers").value)||0)*ERASER+(parseInt(document.getElementById("staplers").value)||0)*STAPLER+(parseInt(document.getElementById("notebooks").value)||0)*NOTEBOOK;
+  let grand=printTotal+addons+DELIV;
+  document.getElementById("printSubtotal").textContent="₹"+printTotal;
+  document.getElementById("addonsSubtotal").textContent="₹"+addons;
+  document.getElementById("grandTotal").textContent="₹"+grand;
+  document.getElementById("upiButton").href=`upi://pay?pa=amirhamja8158@okhdfcbank&pn=Mumbra%20Minutes&am=${grand}&cu=INR`;
+  return{printTotal,addons,grand};
 }
 
-document.getElementById("addRuleBtn").addEventListener("click", () => {
-  let num = rulesContainer.children.length + 1;
-  let html = `<div class="print-rule" data-rule="${num}">
-    <div class="rule-header"><span class="rule-number">${num}</span><button type="button" class="remove-rule" onclick="this.closest('.print-rule').remove();calculateTotal();">×</button></div>
-    <label>Which Page(s)?</label><input type="text" class="rule-pages" placeholder="e.g. Page 1-5" required>
-    <div class="rule-grid">
-      <div><label>Print Type</label><select class="rule-type" onchange="calculateTotal()"><option value="Black & White - ₹4/page">B&W ₹4</option><option value="Colour - ₹10/page">Colour ₹10</option></select></div>
-      <div><label>Pages</label><input type="number" class="rule-pages-count" value="1" min="1" oninput="calculateTotal()"></div>
-      <div><label>Copies</label><input type="number" class="rule-copies" value="1" min="1" oninput="calculateTotal()"></div>
-      <div><label>Side</label><select class="rule-side"><option value="Single-Sided">Single</option><option value="Double-Sided">Double</option></select></div>
-    </div>
-  </div>`;
-  rulesContainer.insertAdjacentHTML("beforeend", html);
-  calculateTotal();
+document.getElementById("addRuleBtn").addEventListener("click",()=>{
+  let num=rulesContainer.children.length+1;
+  let html=`<div class="print-rule" data-rule="${num}"><div class="rule-header"><span class="rule-number">${num}</span><button type="button" class="remove-rule" onclick="this.closest('.print-rule').remove();calculateTotal();">×</button></div><label>Which Page(s)?</label><input type="text" class="rule-pages" placeholder="e.g. Page 1-5" required><div class="rule-grid"><div><label>Print Type</label><select class="rule-type" onchange="calculateTotal()"><option value="Black & White - ₹4/page">B&W ₹4</option><option value="Colour - ₹10/page">Colour ₹10</option></select></div><div><label>Pages</label><input type="number" class="rule-pages-count" value="1" min="1" oninput="calculateTotal()"></div><div><label>Copies</label><input type="number" class="rule-copies" value="1" min="1" oninput="calculateTotal()"></div><div><label>Side</label><select class="rule-side"><option value="Single-Sided">Single</option><option value="Double-Sided">Double</option></select></div></div></div>`;
+  rulesContainer.insertAdjacentHTML("beforeend",html); calculateTotal();
 });
 
-document.getElementById("gpsBtn").addEventListener("click", () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(p => {
-      document.getElementById("location").value = `https://maps.google.com/?q=${p.coords.latitude},${p.coords.longitude}`;
-    });
-  }
+document.getElementById("gpsBtn").addEventListener("click",()=>{
+  if(navigator.geolocation){navigator.geolocation.getCurrentPosition(p=>{document.getElementById("location").value=`http://googleusercontent.com/maps.google.com/5{p.coords.latitude},${p.coords.longitude}`;});}
 });
 
-document.getElementById("paymentMethod").addEventListener("change", (e) => {
-  let isUpi = e.target.value.includes("UPI");
-  document.getElementById("onlinePayment").classList.toggle("hidden", !isUpi);
+document.getElementById("paymentMethod").addEventListener("change",e=>{
+  document.getElementById("onlinePayment").classList.toggle("hidden", !e.target.value.includes("UPI"));
 });
 
-form.addEventListener("input", calculateTotal);
+form.addEventListener("input",calculateTotal);
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit",async e=>{
   e.preventDefault();
-  
-  const totals = calculateTotal();
-  const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
-  const fileLink = document.getElementById("fileLink").value;
-  const location = document.getElementById("location").value;
-  const deliveryNotes = document.getElementById("deliveryNotes").value;
-  const paymentMethod = document.getElementById("paymentMethod").value;
-  const utr = document.getElementById("utr").value;
+  let btn=document.getElementById("submitBtn"); btn.disabled=true; btn.textContent="⏳ Submitting...";
+  const totals=calculateTotal(), name=document.getElementById("name").value, phone=document.getElementById("phone").value, fileLink=document.getElementById("fileLink").value, photoLink=document.getElementById("photoLink").value, location=document.getElementById("location").value, deliveryNotes=document.getElementById("deliveryNotes").value, paymentMethod=document.getElementById("paymentMethod").value, utr=document.getElementById("utr").value;
 
-  let rulesText = "";
-  document.querySelectorAll(".print-rule").forEach((r, idx) => {
-    let pages = r.querySelector(".rule-pages").value;
-    let type = r.querySelector(".rule-type").value;
-    let pagesCnt = r.querySelector(".rule-pages-count").value;
-    let copies = r.querySelector(".rule-copies").value;
-    let side = r.querySelector(".rule-side").value;
-    rulesText += `  • Rule ${idx + 1}: ${pages} | ${type} | ${pagesCnt} Pg | ${copies} Copy | ${side}\n`;
+  let rulesText="";
+  document.querySelectorAll(".print-rule").forEach((r,i)=>{
+    rulesText+=`  • Rule ${i+1}: ${r.querySelector(".rule-pages").value} | ${r.querySelector(".rule-type").value} | ${r.querySelector(".rule-pages-count").value} Pg | ${r.querySelector(".rule-copies").value} Copy | ${r.querySelector(".rule-side").value}\n`;
   });
 
-  let itemsText = "";
-  let photos = parseInt(document.getElementById("photoSets").value)||0;
-  let lamination = parseInt(document.getElementById("laminationPages").value)||0;
-  let pens = parseInt(document.getElementById("pens").value)||0;
-  let pencils = parseInt(document.getElementById("pencils").value)||0;
-  let erasers = parseInt(document.getElementById("erasers").value)||0;
-  let staplers = parseInt(document.getElementById("staplers").value)||0;
-  let notebooks = parseInt(document.getElementById("notebooks").value)||0;
-  let supplyNotes = document.getElementById("supplyNotes").value;
+  let itemsText="", photos=parseInt(document.getElementById("photoSets").value)||0, lamination=parseInt(document.getElementById("laminationPages").value)||0, pens=parseInt(document.getElementById("pens").value)||0, pencils=parseInt(document.getElementById("pencils").value)||0, erasers=parseInt(document.getElementById("erasers").value)||0, staplers=parseInt(document.getElementById("staplers").value)||0, notebooks=parseInt(document.getElementById("notebooks").value)||0, supplyNotes=document.getElementById("supplyNotes").value;
 
-  if (photos > 0) itemsText += `  • Passport Photo Sets: ${photos}\n`;
-  if (lamination > 0) itemsText += `  • Page Lamination: ${lamination}\n`;
-  if (pens > 0) itemsText += `  • Pens: ${pens}\n`;
-  if (pencils > 0) itemsText += `  • Pencils: ${pencils}\n`;
-  if (erasers > 0) itemsText += `  • Eraser Sets: ${erasers}\n`;
-  if (staplers > 0) itemsText += `  • Staplers: ${staplers}\n`;
-  if (notebooks > 0) itemsText += `  • Notebooks: ${notebooks}\n`;
-  if (supplyNotes) itemsText += `  • Notes: ${supplyNotes}\n`;
+  if(photos>0) itemsText+=`  • Passport Photo Sets: ${photos}`+(photoLink?`\n    └ Photo File: ${photoLink}`:'')+'\n';
+  if(lamination>0) itemsText+=`  • Page Lamination: ${lamination}\n`;
+  if(pens>0) itemsText+=`  • Pens: ${pens}\n`;
+  if(pencils>0) itemsText+=`  • Pencils: ${pencils}\n`;
+  if(erasers>0) itemsText+=`  • Eraser Sets: ${erasers}\n`;
+  if(staplers>0) itemsText+=`  • Staplers: ${staplers}\n`;
+  if(notebooks>0) itemsText+=`  • Notebooks: ${notebooks}\n`;
+  if(supplyNotes) itemsText+=`  • Notes: ${supplyNotes}\n`;
 
-  let msg = `🚀 *NEW ORDER - MUMBRA MINUTES*\n\n` +
-            `👤 *Customer:* ${name}\n` +
-            `📞 *Phone:* ${phone}\n` +
-            `📄 *File Link:* ${fileLink}\n\n` +
-            `🖨️ *Print Specs:*\n${rulesText}\n` +
-            (itemsText ? `✏️ *Addons & Supplies:*\n${itemsText}\n` : '') +
-            `📍 *Location:* ${location}\n` +
-            `🚚 *Delivery Note:* ${deliveryNotes}\n\n` +
-            `💳 *Payment Method:* ${paymentMethod}` + (utr ? ` (UTR: ${utr})` : '') + `\n` +
-            `🧾 *Grand Total:* ₹${totals.grand}\n`;
+  let msg=`🚀 <b>NEW ORDER - MUMBRA MINUTES</b>\n\n👤 <b>Customer:</b> ${name}\n📞 <b>Phone:</b> ${phone}\n📄 <b>Doc Link:</b> ${fileLink}\n\n🖨️ <b>Print Specs:</b>\n${rulesText}\n`+(itemsText?`✏️ <b>Addons & Supplies:</b>\n${itemsText}\n`:'')+`📍 <b>Location:</b> ${location}\n🚚 <b>Delivery Note:</b> ${deliveryNotes}\n\n💳 <b>Payment Method:</b> ${paymentMethod}`+(utr?` (UTR: ${utr})`:'')+`\n🧾 <b>Grand Total:</b> ₹${totals.grand}\n`;
 
-  window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+  try{
+    let res=await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:CHAT_ID,text:msg,parse_mode:"HTML"})});
+    if(res.ok){alert("✅ Order placed successfully! Check your Telegram."); form.reset(); calculateTotal();}
+    else alert("❌ Error sending order. Make sure you tapped 'START' on your Bot!");
+  }catch(err){alert("❌ Network error. Check your internet connection.");}
+  btn.disabled=false; btn.textContent="🚀 Place Order";
 });
 
 calculateTotal();
 </script>
 </body>
 </html>
+
