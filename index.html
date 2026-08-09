@@ -29,8 +29,8 @@
 
     /* Dynamic Print Item Block */
     .print-rule-card { background: #fafafa; border: 1px solid #10b981; border-radius: 10px; padding: 12px; margin-bottom: 10px; position: relative; }
-    .btn-remove-rule { position: absolute; top: 8px; right: 8px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 22px; height: 22px; font-size: 12px; cursor: pointer; line-height: 1; }
-    .btn-add-rule { width: 100%; background: #ecfdf5; color: #059669; border: 1px dashed #10b981; padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 13px; margin-bottom: 12px; transition: background 0.2s; }
+    .btn-remove-rule { position: absolute; top: 8px; right: 8px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 24px; height: 24px; font-size: 12px; cursor: pointer; line-height: 1; display: flex; align-items: center; justify-content: center; z-index: 10; }
+    .btn-add-rule { width: 100%; background: #ecfdf5; color: #059669; border: 1px dashed #10b981; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 13px; margin-bottom: 12px; transition: background 0.2s; }
     .btn-add-rule:hover { background: #d1fae5; }
 
     /* Sub-option boxes inside items */
@@ -108,18 +108,18 @@
           <div style="display: flex; gap: 8px;">
             <div style="flex: 1;">
               <label>Print Type:</label>
-              <select name="Print Color Type[]" class="rule-type" onchange="calculateTotal()">
+              <select name="Print Color Type[]" class="rule-type">
                 <option value="BW">🖤 B & W (₹4/pg)</option>
                 <option value="Color">🎨 Coloured (₹10/pg)</option>
               </select>
             </div>
-            <div style="width: 80px;">
+            <div style="width: 75px;">
               <label>Sheets:</label>
-              <input type="number" name="Sheets Count[]" class="rule-sheets" value="1" min="0" oninput="calculateTotal()">
+              <input type="number" name="Sheets Count[]" class="rule-sheets" value="1" min="0">
             </div>
-            <div style="width: 80px;">
+            <div style="width: 75px;">
               <label>Copies:</label>
-              <input type="number" name="Copies Count[]" class="rule-copies" value="1" min="1" oninput="calculateTotal()">
+              <input type="number" name="Copies Count[]" class="rule-copies" value="1" min="1">
             </div>
           </div>
         </div>
@@ -138,8 +138,8 @@
 
       <div class="sub-option-box">
         <label for="photo-file-link">📸 Passport Photo File / Image Link:</label>
-        <input type="url" id="photo-file-link" name="Passport Photo Image Link" placeholder="Paste image link here (Google Drive / Imgur / Drive Link)">
-        <small style="color: #6b7280; display: block; margin-top: -6px;">If ordering passport photos, paste your photo link above. Make sure Drive link access is set to "Anyone with link".</small>
+        <input type="url" id="photo-file-link" name="Passport Photo Image Link" placeholder="Paste image link here (Google Drive / Imgur)">
+        <small style="color: #6b7280; display: block; margin-top: -6px;">If ordering photos, paste your photo link above (Set Drive access to "Anyone with link").</small>
       </div>
 
       <div class="item-row" style="margin-top: 10px;">
@@ -228,9 +228,9 @@
 
     <div class="card">
       <div class="card-title">📍 Delivery Location</div>
-      <label for="location-link">Detect address via GPS:</label>
+      <label for="location-link">Detect address via GPS or enter below:</label>
       <div class="location-container">
-        <input type="url" id="location-link" name="Delivery Location Link" placeholder="Click GPS or paste Maps link" required>
+        <input type="text" id="location-link" name="Delivery Location Link" placeholder="Click 'Get GPS' or type full address" required>
         <button type="button" class="btn-gps" onclick="getLocation()">📍 Get GPS</button>
       </div>
       
@@ -341,6 +341,19 @@
 <script>
   let ruleCount = 1;
 
+  // Add dynamic event listener delegation for calculation updates
+  document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('rule-type') || e.target.classList.contains('rule-sheets') || e.target.classList.contains('rule-copies')) {
+      calculateTotal();
+    }
+  });
+
+  document.addEventListener('input', function(e) {
+    if (e.target.classList.contains('rule-sheets') || e.target.classList.contains('rule-copies')) {
+      calculateTotal();
+    }
+  });
+
   function addPrintRule() {
     ruleCount++;
     const container = document.getElementById('print-rules-container');
@@ -356,18 +369,18 @@
       <div style="display: flex; gap: 8px;">
         <div style="flex: 1;">
           <label>Print Type:</label>
-          <select name="Print Color Type[]" class="rule-type" onchange="calculateTotal()">
+          <select name="Print Color Type[]" class="rule-type">
             <option value="BW">🖤 B & W (₹4/pg)</option>
             <option value="Color">🎨 Coloured (₹10/pg)</option>
           </select>
         </div>
-        <div style="width: 80px;">
+        <div style="width: 75px;">
           <label>Sheets:</label>
-          <input type="number" name="Sheets Count[]" class="rule-sheets" value="1" min="0" oninput="calculateTotal()">
+          <input type="number" name="Sheets Count[]" class="rule-sheets" value="1" min="0">
         </div>
-        <div style="width: 80px;">
+        <div style="width: 75px;">
           <label>Copies:</label>
-          <input type="number" name="Copies Count[]" class="rule-copies" value="1" min="1" oninput="calculateTotal()">
+          <input type="number" name="Copies Count[]" class="rule-copies" value="1" min="1">
         </div>
       </div>
     `;
@@ -385,15 +398,4 @@
 
   function togglePenOptions() {
     const count = parseInt(document.getElementById('stat-pen').value) || 0;
-    document.getElementById('pen-details-box').style.display = count > 0 ? 'block' : 'none';
-  }
-
-  function toggleNotebookOptions() {
-    const count = parseInt(document.getElementById('stat-notebook').value) || 0;
-    document.getElementById('notebook-details-box').style.display = count > 0 ? 'block' : 'none';
-  }
-
-  function calculateTotal() {
-    // 1. Print Calculation
-    let printSubtotal = 0;
-    const ruleCards = document.querySelectorAll('.print-rule-card')
+    document.getElementById('pen-details-box').style.display = count > 0 ? 'block' : 'no
