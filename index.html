@@ -187,7 +187,7 @@ document.getElementById("addRuleBtn").addEventListener("click",()=>{
 });
 
 document.getElementById("gpsBtn").addEventListener("click",()=>{
-  if(navigator.geolocation){navigator.geolocation.getCurrentPosition(p=>{document.getElementById("location").value=`http://googleusercontent.com/maps.google.com/5{p.coords.latitude},${p.coords.longitude}`;});}
+if(navigator.geolocation){navigator.geolocation.getCurrentPosition(p=>{document.getElementById("location").value=`https://www.google.com/maps?q=${p.coords.latitude},${p.coords.longitude}`;});}
 });
 
 document.getElementById("paymentMethod").addEventListener("change",e=>{
